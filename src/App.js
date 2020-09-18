@@ -30,7 +30,7 @@ export default function App() {
       >
         {data.map((infection) => (
           // Map Connect & Logic
-          <Marker key={data.UID}>
+          <Marker key={data.UID} latitude={data.Lat} longitude={data.Long_}>
             <div>INFECTION</div>
           </Marker>
         ))}
