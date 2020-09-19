@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import "./App.css";
-import data from "./data/data.json";
-// import * as data from "./data/data.json";
-// import * as d3 from "d3";
-// import Test from "./components/Test";
-// import Map from "./components/Map";
+import covidData from "./data/geojson.json";
 
 export default function App() {
   // Viewport Settings
@@ -20,7 +15,6 @@ export default function App() {
   return (
     <div>
       <ReactMapGL
-        // Map Connect & Logic
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/achatmajian/ckf7k6fnp0hwy19qkq0o6vfdq"
@@ -28,10 +22,13 @@ export default function App() {
           setViewport(viewport);
         }}
       >
-        {data.map((infection) => (
-          // Map Connect & Logic
-          <Marker key={data.UID} latitude={data.Lat} longitude={data.Long_}>
-            <div>INFECTION</div>
+        {covidData.features.map((infection) => (
+          <Marker
+            key={infection.properties.UID}
+            latitude={infection.geometry.coordinates[1]}
+            longitude={infection.geometry.coordinates[0]}
+          >
+            <div>COVID</div>
           </Marker>
         ))}
       </ReactMapGL>
