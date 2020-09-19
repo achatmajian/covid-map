@@ -28,7 +28,12 @@ export default function App() {
             latitude={infection.geometry.coordinates[1]}
             longitude={infection.geometry.coordinates[0]}
           >
-            <div>COVID</div>
+            <button class="marker-btn">
+              <img
+                src="https://i.ibb.co/0JL22Dn/covid-icon.png"
+                alt="Covid Icon"
+              />
+            </button>
           </Marker>
         ))}
       </ReactMapGL>
