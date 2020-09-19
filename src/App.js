@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import covidData from "./data/geojson.json";
 
 export default function App() {
@@ -11,6 +11,7 @@ export default function App() {
     height: "100vh",
     zoom: 8,
   });
+  const [selectedInfection, setSelectedInfection] = useState(null);
 
   return (
     <div>
@@ -28,11 +29,29 @@ export default function App() {
             latitude={infection.geometry.coordinates[1]}
             longitude={infection.geometry.coordinates[0]}
           >
-            <button class="marker-btn">
+            <button
+              className="marker-btn"
+              oncClick={(e) => {
+                e.preventDefault();
+                setSelectedInfection(infection);
+              }}
+            >
               <img src="/covid-icon.svg" alt="Covid Icon" />
             </button>
           </Marker>
         ))}
+
+        {selectedInfection ? (
+          <Popup
+            latitude={selectedInfection.geometry.coordinates[1]}
+            longitude={selectedInfection.geometry.coordinates[0]}
+            onClose={() => {
+              setSelectedInfection(null);
+            }}
+          >
+            <div>infection</div>
+          </Popup>
+        ) : null}
       </ReactMapGL>
     </div>
   );
