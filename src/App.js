@@ -31,7 +31,7 @@ export default function App() {
           >
             <button
               className="marker-btn"
-              oncClick={(e) => {
+              onClick={(e) => {
                 e.preventDefault();
                 setSelectedInfection(infection);
               }}
@@ -49,7 +49,9 @@ export default function App() {
               setSelectedInfection(null);
             }}
           >
-            <div>infection</div>
+            <div>
+              <h2>{selectedInfection.properties.Combined_Key}</h2>
+            </div>
           </Popup>
         ) : null}
       </ReactMapGL>
