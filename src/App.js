@@ -5,11 +5,11 @@ import covidData from "./data/geojson.json";
 export default function App() {
   // Viewport Settings
   const [viewport, setViewport] = useState({
-    latitude: 39.7837759,
-    longitude: -95.4460149,
+    latitude: 40.757535,
+    longitude: -73.977085,
     width: "100vw",
     height: "100vh",
-    zoom: 4,
+    zoom: 8,
   });
 
   return (
@@ -29,10 +29,7 @@ export default function App() {
             longitude={infection.geometry.coordinates[0]}
           >
             <button class="marker-btn">
-              <img
-                src="https://i.ibb.co/0JL22Dn/covid-icon.png"
-                alt="Covid Icon"
-              />
+              <img src="/covid-icon.svg" alt="Covid Icon" />
             </button>
           </Marker>
         ))}
