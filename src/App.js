@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import covidData from "./data/geojson.json";
+import Chart from "./components/Chart.js";
 
 export default function App() {
   // Viewport Settings
@@ -52,6 +53,7 @@ export default function App() {
             <div>
               <h2>{selectedInfection.properties.Combined_Key}</h2>
             </div>
+            <Chart />
           </Popup>
         ) : null}
       </ReactMapGL>
