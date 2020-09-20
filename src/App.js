@@ -51,7 +51,9 @@ export default function App() {
             }}
           >
             <div>
-              <h2>{selectedInfection.properties.Combined_Key}</h2>
+              <h2 style={{ textAlign: "center" }}>
+                {selectedInfection.properties.Combined_Key}
+              </h2>
             </div>
             <Chart />
           </Popup>

@@ -6,13 +6,13 @@ const Chart = () => {
 
   const chart = () => {
     setChartData({
-      labels: ["monday", "tuesday", "wednesday", "thursday", "friday"],
+      labels: ["March", "April", "May", "June", "July", "August", "September"],
       datasets: [
         {
-          label: "Cofirmed Covid Cases",
-          data: [100, 200, 300, 400, 500],
+          label: "Confirmed Covid Cases",
+          data: [10, 20, 30, 40, 50],
           backgroundColor: ["rgba(75, 192, 192, 0.6)"],
-          borderWidth: 4,
+          borderWidth: 2,
         },
       ],
     });
@@ -23,9 +23,15 @@ const Chart = () => {
   }, []);
   return (
     <div classname="App">
-      <h2>COVID Chart</h2>
-      <div>
-        <Line data={chartData} />
+      <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4>
+      <div style={{ height: "auto", width: "500px" }}>
+        <Line
+          data={chartData}
+          options={{
+            responsive: true,
+            // title: { text: "Covid-19 Test Test test", display: true },
+          }}
+        />
       </div>
     </div>
   );
