@@ -9,9 +9,9 @@ const Chart = () => {
       labels: ["March", "April", "May", "June", "July", "August", "September"],
       datasets: [
         {
-          label: "Confirmed Covid Cases",
-          data: [10, 20, 30, 40, 50],
-          backgroundColor: ["rgba(75, 192, 192, 0.6)"],
+          label: "Confirmed COVID-19 Infections",
+          data: [10, 20, 30, 40, 50, 60, 90],
+          backgroundColor: ["rgba(150, 202, 184, 0.6)"],
           borderWidth: 2,
         },
       ],
@@ -23,7 +23,7 @@ const Chart = () => {
   }, []);
   return (
     <div classname="App">
-      <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4>
+      {/* <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4> */}
       <div style={{ height: "auto", width: "500px" }}>
         <Line
           data={chartData}
