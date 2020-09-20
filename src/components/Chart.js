@@ -10,8 +10,8 @@ const Chart = () => {
       datasets: [
         {
           label: "Confirmed COVID-19 Infections",
-          data: [10, 20, 30, 40, 50, 60, 90],
-          backgroundColor: ["rgba(150, 202, 184, 0.6)"],
+          data: [0, 327, 1243, 4786, 6192, 3093, 1864],
+          backgroundColor: ["rgba(0, 153, 0, 0.6)"],
           borderWidth: 2,
         },
       ],
