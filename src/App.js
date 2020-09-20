@@ -5,7 +5,6 @@ import ReactMapGL, {
   GeolocateControl,
   NavigationControl,
 } from "react-map-gl";
-import Geocoder from "react-map-gl-geocoder";
 import covidData from "./data/geojson.json";
 import Chart from "./components/Chart.js";
 import "./App.css";
