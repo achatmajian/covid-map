@@ -65,6 +65,21 @@ export default function App() {
             <Chart />
           </Popup>
         ) : null}
+        <div style={{ position: "absolute", right: 0, margin: "30px" }}>
+          <NavigationControl />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            margin: "130px 30px 30px 30px",
+          }}
+        >
+          <GeolocateControl
+            positionOptions={{ enableHighAccuracy: true }}
+            trackUserLocation={true}
+          />
+        </div>
       </ReactMapGL>
     </div>
   );
