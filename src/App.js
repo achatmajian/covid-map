@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, {
+  Marker,
+  Popup,
+  GeolocateControl,
+  NavigationControl,
+} from "react-map-gl";
+import Geocoder from "react-map-gl-geocoder";
 import covidData from "./data/geojson.json";
 import Chart from "./components/Chart.js";
+import "./App.css";
 
 export default function App() {
   // Viewport Settings

@@ -16,3 +16,9 @@
   width: 20px;
   height: 20px;
 }
+
+.geolocateControl {
+  width: "30px";
+  height: "30px";
+  margin: "30px";
+}
