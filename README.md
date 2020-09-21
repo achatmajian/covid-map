@@ -4,12 +4,10 @@ This project was used to show areas of the United States with confirmed cases of
 
 ## How To Use
 
-Each green spot on the map represents a county of US state infected with COVID-19.
-![Image of COVID-19 Map](https://i.ibb.co/hc9C551/Screen-Shot-2020-09-20-at-9-25-25-PM.png=200x)
+Each green spot on the map represents an area infected with COVID-19. Clicking a green COVID-19 marker gives you information about the confirmed infection number of said county.
+![Image of COVID-19 Map](https://i.ibb.co/Fqm0ZCQ/Screen-Shot-2020-09-20-at-9-25-48-PM.png)
 
-
-Clicking a green COVID-19 marker gives you information about the confirmed infection number of said county.
-![When icon is clicked](https://i.ibb.co/zmQZfN7/Screen-Shot-2020-09-20-at-9-25-48-PM.png==200x)
+![When icon is clicked](https://i.ibb.co/Fqm0ZCQ/Screen-Shot-2020-09-20-at-9-25-48-PM.png)
 
 ## Deployed Application Link
 
