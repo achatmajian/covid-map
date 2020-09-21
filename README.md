@@ -2,6 +2,12 @@
 
 This project was used to show areas of the United States with confirmed cases of the COVID-19 pandemic. 
 
+## How To Use
+
+Each green spot on the map represents a county of a state infected with COVID-19. Click the green icon to get information.
+
+![Image of COVID-19 Map](https://i.ibb.co/hc9C551/Screen-Shot-2020-09-20-at-9-25-25-PM.png)
+
 ## Deployed Application Link
 
 Click this link to view the deployed application: https://reverent-lamport-efefa5.netlify.app/
