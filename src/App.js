@@ -10,7 +10,7 @@ import Chart from "./components/Chart.js";
 import "./App.css";
 
 export default function App() {
-  // Viewport Settings
+  /* ======= Viewport set up ======= */
   const [viewport, setViewport] = useState({
     latitude: 40.757535,
     longitude: -73.977085,
@@ -21,6 +21,7 @@ export default function App() {
   const [selectedInfection, setSelectedInfection] = useState(null);
 
   return (
+    /* ======= Map render ======= */
     <div>
       <ReactMapGL
         {...viewport}
@@ -31,6 +32,7 @@ export default function App() {
         }}
       >
         {covidData.features.map((infection) => (
+          /* ======= Custom markers to locations pulled from data ======= */
           <Marker
             key={infection.properties.UID}
             latitude={infection.geometry.coordinates[1]}
@@ -49,6 +51,7 @@ export default function App() {
         ))}
 
         {selectedInfection ? (
+          /* ======= Logic for modal and data displayed within ======= */
           <Popup
             latitude={selectedInfection.geometry.coordinates[1]}
             longitude={selectedInfection.geometry.coordinates[0]}
@@ -64,6 +67,7 @@ export default function App() {
             <Chart />
           </Popup>
         ) : null}
+
         <div style={{ position: "absolute", right: 0, margin: "30px" }}>
           <NavigationControl />
         </div>
