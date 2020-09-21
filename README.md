@@ -2,13 +2,6 @@
 
 This project was used to show areas of the United States with confirmed cases of the COVID-19 pandemic. 
 
-## How To Use
-
-Each green spot on the map represents an area infected with COVID-19. Clicking a green COVID-19 marker gives you information about the confirmed infection number of said county.
-![Image of COVID-19 Map](https://i.ibb.co/HNPmT00/Screen-Shot-2020-09-20-at-9-25-25-PM.png)
-
-![When icon is clicked](https://i.ibb.co/Fqm0ZCQ/Screen-Shot-2020-09-20-at-9-25-48-PM.png)
-
 ## Deployed Application Link
 
 Click this link to view the deployed application: https://reverent-lamport-efefa5.netlify.app/
