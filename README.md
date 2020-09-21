@@ -21,3 +21,7 @@ This application was built using:
 - Mapbox GL to render the map.
 - Chart.js to render the charts.
 - Netlify for deployment.
+
+## Data Used
+
+Data for this project was gathered and provided by [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
