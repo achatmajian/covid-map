@@ -3,7 +3,23 @@
     "features": [
         {
             "type": "Feature",
+            "state": "AK",
             "id": "0",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -152.2683,
+                    61.3850
+                ]
+            },
+            "properties": {
+                "name": "Alaska"
+            }
+        },
+        {
+            "type": "Feature",
+            "state": "AL",
+            "id": "1",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
@@ -13,6 +29,36 @@
             },
             "properties": {
                 "name": "Alabama"
+            }
+        },
+        {
+            "type": "Feature",
+            "state": "AR",
+            "id": "2",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.3809,
+                    34.9513
+                ]
+            },
+            "properties": {
+                "name": "Arkansas"
+            }
+        },
+        {
+            "type": "Feature",
+            "state": "AS",
+            "id": "3",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -170.7074,
+                    -14.30225
+                ]
+            },
+            "properties": {
+                "name": "America Samoa"
             }
         },
         {
