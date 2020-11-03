@@ -1,0 +1,33 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "0",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.791130,
+                    32.806671
+                ]
+            },
+            "properties": {
+                "name": "Alabama"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "37",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.454102,
+                    42.650122
+                ]
+            },
+            "properties": {
+                "name": "New York"
+            }
+        }
+    ]
+}
