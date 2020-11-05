@@ -6,9 +6,14 @@ import ReactMapGL, {
   NavigationControl,
 } from "react-map-gl";
 // import covidData from "./data/geojson.json";
+import axios from "axios";
 import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
 import "./App.css";
+
+const api = axios.create({
+  baseURL: `https://api.covidtracking.com/v1/states/current.json`
+})
 
 export default function App() {
   /* ======= Viewport set up ======= */
