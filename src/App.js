@@ -5,7 +5,8 @@ import ReactMapGL, {
   GeolocateControl,
   NavigationControl,
 } from "react-map-gl";
-import covidData from "./data/geojson.json";
+// import covidData from "./data/geojson.json";
+import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
 import "./App.css";
 
@@ -31,12 +32,12 @@ export default function App() {
           setViewport(viewport);
         }}
       >
-        {covidData.features.map((infection) => (
+        {statesCoordinates.map((infection) => (
           /* ======= Custom markers to locations pulled from data ======= */
           <Marker
-            key={infection.properties.UID}
-            latitude={infection.geometry.coordinates[1]}
-            longitude={infection.geometry.coordinates[0]}
+            key={infection.state}
+            latitude={infection.latitude}
+            longitude={infection.longitude}
           >
             <button
               className="marker-btn"
@@ -53,15 +54,15 @@ export default function App() {
         {selectedInfection ? (
           /* ======= Logic for modal and data displayed within ======= */
           <Popup
-            latitude={selectedInfection.geometry.coordinates[1]}
-            longitude={selectedInfection.geometry.coordinates[0]}
+            latitude={selectedInfection.latitude}
+            longitude={selectedInfection.longitude}
             onClose={() => {
               setSelectedInfection(null);
             }}
           >
             <div>
               <h2 style={{ textAlign: "center" }}>
-                {selectedInfection.properties.Combined_Key}
+                {selectedInfection.state}
               </h2>
             </div>
             <Chart />
