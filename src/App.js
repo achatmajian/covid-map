@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import ReactMapGL, {
   Marker,
   Popup,
@@ -16,6 +16,16 @@ const api = axios.create({
 })
 
 export default function App() {
+
+  <Fragment>
+    constructor() {
+      super()
+      api.get("/").then(res => {
+      console.log(res.data)
+    })
+  }
+  </Fragment>
+
   /* ======= Viewport set up ======= */
   const [viewport, setViewport] = useState({
     latitude: 40.757535,
