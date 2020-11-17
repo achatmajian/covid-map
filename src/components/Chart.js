@@ -2,47 +2,59 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: `https://api.covidtracking.com/v1/states/current.json`,
-});
+// const api = axios.create({
+//   baseURL: `https://api.covidtracking.com/v1/states/current.json`,
+// });
 
 /* ======= Set up chart component ======= */
 const Chart = () => {
   const [isLoading, setLoading] = useState(true);
   const [chartData, setChartData] = useState({});
+  const [deaths, setDeaths] = useState({});
+  const [date, setDate] = useState({});
+
   /* ======= Data & styling for chart in modal ======= */
   const chart = () => {
-    setChartData({
-      labels: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-      ],
-      datasets: [
-        {
-          label: "Confirmed COVID-19 Infections",
-          data: [0, 132, 266, 327, 1243, 4786, 6192, 3093, 1864],
-          backgroundColor: ["rgba(0, 153, 0, 0.6)"],
-          borderWidth: 2,
-        },
-      ],
-    });
+
+    let covidDeaths = [];
+    let timePassed = [];
+
+    axios.get("https://api.covidtracking.com/v1/states/daily.json")
+      .then(res => {
+        console.log(res);
+        setLoading(false);
+        for (const dataObj of res.data) {
+          covidDeaths.push(parseInt(dataObj.death))
+          timePassed.push(parseInt(dataObj.date))
+        }
+        setChartData({
+          labels: timePassed,
+          datasets: [
+            {
+              label: "Confirmed COVID-19 Infections",
+              data: covidDeaths,
+              backgroundColor: ["rgba(0, 153, 0, 0.6)"],
+              borderWidth: 2,
+            },
+          ],
+        });
+      })
+      .catch(err => {
+        console.log(err)
+      });
+    console.log(covidDeaths, timePassed);
+
+
   };
 
   useEffect(() => {
     chart();
   }, []);
 
-  api.get("/").then((res) => {
-    console.log(res.data);
-    setLoading(false);
-  });
+  // api.get("/").then((res) => {
+  //   console.log(res.data);
+  //   setLoading(false);
+  // });
 
   return (
     <div classname="App">
