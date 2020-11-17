@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: `https://api.covidtracking.com/v1/states/current.json`,
+});
 
 /* ======= Set up chart component ======= */
 const Chart = () => {
+  const [isLoading, setLoading] = useState(true);
   const [chartData, setChartData] = useState({});
-
   /* ======= Data & styling for chart in modal ======= */
   const chart = () => {
     setChartData({
@@ -33,8 +38,15 @@ const Chart = () => {
   useEffect(() => {
     chart();
   }, []);
+
+  api.get("/").then((res) => {
+    console.log(res.data);
+    setLoading(false);
+  });
+
   return (
     <div classname="App">
+      {isLoading ? "Loading..." : "Loaded!"}
       {/* <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4> */}
       <div style={{ height: "auto", width: "500px" }}>
         <Line
