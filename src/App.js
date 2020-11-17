@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import ReactMapGL, {
   Marker,
   Popup,
@@ -6,26 +6,11 @@ import ReactMapGL, {
   NavigationControl,
 } from "react-map-gl";
 // import covidData from "./data/geojson.json";
-import axios from "axios";
 import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
 import "./App.css";
 
-const api = axios.create({
-  baseURL: `https://api.covidtracking.com/v1/states/current.json`
-})
-
 export default function App() {
-
-  <Fragment>
-    constructor() {
-      super()
-      api.get("/").then(res => {
-      console.log(res.data)
-    })
-  }
-  </Fragment>
-
   /* ======= Viewport set up ======= */
   const [viewport, setViewport] = useState({
     latitude: 40.757535,
@@ -76,9 +61,7 @@ export default function App() {
             }}
           >
             <div>
-              <h2 style={{ textAlign: "center" }}>
-                {selectedInfection.state}
-              </h2>
+              <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
             </div>
             <Chart />
           </Popup>
