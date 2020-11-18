@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import axios from "axios";
+import { line } from "d3";
 
 // const api = axios.create({
 //   baseURL: `https://api.covidtracking.com/v1/states/current.json`,
@@ -31,7 +32,7 @@ const Chart = () => {
           labels: timePassed,
           datasets: [
             {
-              label: "Confirmed COVID-19 Infections",
+              label: "COVID-19 Deaths",
               data: covidDeaths,
               backgroundColor: ["rgba(0, 153, 0, 0.6)"],
               borderWidth: 2,
