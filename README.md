@@ -26,8 +26,7 @@ This application was built using:
 
 Data for this project was gathered and provided by [The COVID Tracking Project API](https://covidtracking.com/data/api).
 
-
 ## Team
 
 Arek Chatmajian - Front-End Developement, UX/UI Design
-Justin Perry - Back-End Development, Advisor/Consultant
+Justin Perry - Back-End Development, Advisor
