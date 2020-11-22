@@ -24,4 +24,10 @@ This application was built using:
 
 ## Data Used
 
-Data for this project was gathered and provided by [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19).
+Data for this project was gathered and provided by [The COVID Tracking Project API](https://covidtracking.com/data/api).
+
+
+## Team
+
+Arek Chatmajian - Front-End Developement, UX/UI Design
+Justin Perry - Back-End Development, Advisor/Consultant
