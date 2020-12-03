@@ -20,7 +20,7 @@ const Chart = () => {
     let covidDeaths = [];
     let timePassed = [];
 
-    axios.get("https://api.covidtracking.com/v1/states/" + state_code_this + "/current.json")
+    axios.get("https://api.covidtracking.com/v1/states/current.json")
       .then(res => {
         console.log(res);
         setLoading(false);
@@ -35,7 +35,8 @@ const Chart = () => {
               label: "COVID-19 Deaths",
               data: covidDeaths,
               backgroundColor: ["rgba(0, 153, 0, 0.6)"],
-              borderWidth: 2,
+              // borderColor: ["rgba(0, 153, 0, 0.6)"],
+              borderWidth: 1,
             },
           ],
         });
@@ -59,8 +60,8 @@ const Chart = () => {
 
   return (
     <div classname="App">
-      {isLoading ? "Loading..." : "Loaded!"}
-      {/* <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4> */}
+      {/* <h4 style={{ textAlign: "center" }}>COVID-19 By State</h4> */}
+      <p style={{ textAlign: "center", marginTop: "10px", fontWeight: "600" }}>{isLoading ? "Data Loading..." : "Data Loaded!"}</p>
       <div style={{ height: "auto", width: "500px" }}>
         <Line
           data={chartData}

@@ -8,6 +8,7 @@ import ReactMapGL, {
 // import covidData from "./data/geojson.json";
 import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
+import ToggleButtons from "./components/ToggleButtons.js";
 import "./App.css";
 
 export default function App() {
@@ -63,6 +64,7 @@ export default function App() {
             <div>
               <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
             </div>
+            <ToggleButtons />
             <Chart />
           </Popup>
         ) : null}
