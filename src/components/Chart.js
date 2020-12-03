@@ -20,7 +20,7 @@ const Chart = () => {
     let covidDeaths = [];
     let timePassed = [];
 
-    axios.get("https://api.covidtracking.com/v1/states/" + state_code_this + "/current.json")
+    axios.get("https://api.covidtracking.com/v1/states/current.json")
       .then(res => {
         console.log(res);
         setLoading(false);

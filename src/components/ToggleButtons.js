@@ -1,35 +1,24 @@
-import React, { useState } from "react";
-import ReactMapGL from "react-map-gl";
-import { ButtonGroup, ToggleButton } from 'react-bootstrap';
+import React from "react";
+import ToggleButton from "react-bootstrap/ToggleButton";
+import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class ToggleButtons extends React.Component {
+export default function ToggleButtons() {
+    const [value, setValue] = React.useState(1);
+    const handleChange = val => setValue(val);
 
-    render() {
-        const [radioValue, setRadioValue] = useState('1');
-        const radios = [
-            { name: 'Active', value: '1' },
-            { name: 'Radio', value: '2' },
-            { name: 'Radio', value: '3' },
-        ];
-
-        return (
-            <ButtonGroup toggle>
-                {radios.map((radio, idx) => (
-                    <ToggleButton
-                        key={idx}
-                        type="radio"
-                        variant="secondary"
-                        name="radio"
-                        value={radio.value}
-                        checked={radioValue === radio.value}
-                        onChange={(e) => setRadioValue(e.currentTarget.value)}
-                    >
-                        {radio.name}
-                    </ToggleButton>
-                ))}
-            </ButtonGroup>
-        );
-    }
+    return (
+        <ToggleButtonGroup
+            size="sm"
+            name="value"
+            type="radio"
+            value={value}
+            onChange={handleChange}
+        >
+            <ToggleButton value={1} variant="secondary">Deaths</ToggleButton>
+            <ToggleButton value={2} variant="secondary">Hospitalizations</ToggleButton>
+            <ToggleButton value={3} variant="secondary">Positive</ToggleButton>
+            <ToggleButton value={4} variant="secondary">Negative</ToggleButton>
+        </ToggleButtonGroup>
+    );
 }
-
-export default ToggleButtons;
