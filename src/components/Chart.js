@@ -59,7 +59,7 @@ const Chart = () => {
 
   return (
     <div classname="App">
-      {isLoading ? "Loading..." : "Loaded!"}
+      {/* {isLoading ? "Loading..." : "Loaded!"} */}
       {/* <h4 style={{ textAlign: "center" }}>COVID Chart By County</h4> */}
       <div style={{ height: "auto", width: "500px" }}>
         <Line
