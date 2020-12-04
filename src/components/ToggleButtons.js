@@ -18,10 +18,10 @@ export default function ToggleButtons() {
                 value={value}
                 onChange={handleChange}>
 
-                <Button value={1} variant="secondary">Deaths</Button>
-                <Button value={2} variant="secondary">Hospitalizations</Button>
-                <Button value={3} variant="secondary">Positive</Button>
-                <Button value={4} variant="secondary">Negative</Button>
+                <ToggleButton value={1} variant="secondary">Deaths</ToggleButton>
+                <ToggleButton value={2} variant="secondary">Hospitalizations</ToggleButton>
+                <ToggleButton value={3} variant="secondary">Positive</ToggleButton>
+                <ToggleButton value={4} variant="secondary">Negative</ToggleButton>
             </ToggleButtonGroup>
         </Row>
 
