@@ -11,8 +11,8 @@ import { line } from "d3";
 const Chart = () => {
   const [isLoading, setLoading] = useState(true);
   const [chartData, setChartData] = useState({});
-  const [deaths, setDeaths] = useState({});
-  const [date, setDate] = useState({});
+  // const [deaths, setDeaths] = useState({});
+  // const [date, setDate] = useState({});
 
   /* ======= Data & styling for chart in modal ======= */
   const chart = () => {
