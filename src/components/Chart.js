@@ -17,6 +17,7 @@ const Chart = () => {
   /* ======= Data & styling for chart in modal ======= */
   const chart = () => {
 
+    // let matchedState = [];
     let covidDeaths = [];
     let timePassed = [];
 
@@ -24,7 +25,14 @@ const Chart = () => {
       .then(res => {
         console.log(res);
         setLoading(false);
-        for (const dataObj of res.data) {
+        for (const dataObj of res.data)
+
+        //Iterate through state id or abbrevation
+        //Compare state from states.json to state in api
+        //Push data from appropriate state into respective empty array
+
+        {
+          // matchedState.push(parseInt(dataObj))
           covidDeaths.push(parseInt(dataObj.death))
           timePassed.push(parseInt(dataObj.date))
         }
