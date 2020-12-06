@@ -1,74 +1,81 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import axios from "axios";
 
-const Dankmemes = () => {
-    const [chartData, setChartData] = useState({});
-    const [employeeSalary, setEmployeeSalary] = useState([]);
-    const [employeeAge, setEmployeeAge] = useState([]);
+// const api = axios.create({
+//   baseURL: `https://api.covidtracking.com/v1/states/current.json`,
+// });
 
+/* ======= Set up chart component ======= */
+const Chart = () => {
+    const [isLoading, setLoading] = useState(true);
+    const [chartData, setChartData] = useState({});
+    const [deaths, setDeaths] = useState([]);
+    const [date, setDate] = useState([]);
+
+    /* ======= Data & styling for chart in modal ======= */
     const chart = () => {
-        let empSal = [];
-        let empAge = [];
-        axios
-            .get("https://api.covidtracking.com/v1/states/ny/current.json")
+
+        // let matchedState = [];
+        let covidDeaths = [];
+        let timePassed = [];
+
+        axios.get("https://api.covidtracking.com/v1/states/current.json")
             .then(res => {
                 console.log(res);
-                for (const dataObj of res.data) {
-                    empSal.push(parseInt(dataObj.data.death));
-                    empAge.push(parseInt(dataObj.data.date));
+                setLoading(false);
+                const dataObj = res.data;
+                let loopData = '';
+
+                for (let [key, value] of Object.entries(dataObj)) {
+                    if (key === "death") {
+                        loopData += covidDeaths.push(parseInt(dataObj.death))
+                    }
+
+                    // matchedState.push(parseInt(dataObj.state))
+
+                    timePassed.push(parseInt(dataObj.date))
                 }
                 setChartData({
-                    labels: empAge,
+                    labels: timePassed,
                     datasets: [
                         {
-                            label: "level of thiccness",
-                            data: empSal,
-                            backgroundColor: ["rgba(75, 192, 192, 0.6)"],
-                            borderWidth: 4
-                        }
-                    ]
+                            label: "COVID-19 Deaths",
+                            data: covidDeaths,
+                            backgroundColor: ["rgba(0, 153, 0, 0.6)"],
+                            // borderColor: ["rgba(0, 153, 0, 0.6)"],
+                            borderWidth: 1,
+                        },
+                    ],
                 });
             })
             .catch(err => {
-                console.log(err);
+                console.log(err)
             });
-        console.log(empSal, empAge);
+        console.log(covidDeaths, timePassed);
+
+
     };
 
     useEffect(() => {
         chart();
     }, []);
+
+    // api.get("/").then((res) => {
+    //   console.log(res.data);
+    //   setLoading(false);
+    // });
+
     return (
-        <div className="App">
-            <h1>Dankmemes</h1>
-            <div>
+        <div classname="App">
+            {/* <h4 style={{ textAlign: "center" }}>COVID-19 By State</h4> */}
+            <p style={{ textAlign: "center", marginTop: "10px", fontWeight: "600" }}>{isLoading ? "Data Loading..." : "Data Loaded!"}</p>
+            <div style={{ height: "auto", width: "500px" }}>
                 <Line
                     data={chartData}
                     options={{
                         responsive: true,
-                        title: { text: "THICCNESS SCALE", display: true },
-                        scales: {
-                            yAxes: [
-                                {
-                                    ticks: {
-                                        autoSkip: true,
-                                        maxTicksLimit: 10,
-                                        beginAtZero: true
-                                    },
-                                    gridLines: {
-                                        display: false
-                                    }
-                                }
-                            ],
-                            xAxes: [
-                                {
-                                    gridLines: {
-                                        display: false
-                                    }
-                                }
-                            ]
-                        }
+                        // title: { text: "Covid-19 Test Test test", display: true },
                     }}
                 />
             </div>
@@ -76,4 +83,4 @@ const Dankmemes = () => {
     );
 };
 
-export default Dankmemes;
+export default Chart;

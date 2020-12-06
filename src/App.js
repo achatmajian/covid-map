@@ -67,7 +67,7 @@ export default function App() {
               <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
             </div>
             <ToggleButtons />
-            <Chart2 />
+            <ChartTest />
           </Popup>
         ) : null}
 

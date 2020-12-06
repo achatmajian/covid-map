@@ -24,7 +24,7 @@ const Chart = () => {
             .then(res => {
                 console.log(res);
                 setLoading(false);
-                for (const dataObj of res.data)
+                for (const dataObj in res.data)
 
                 //Iterate through state id or abbrevation
                 //Compare state from states.json to state in api
