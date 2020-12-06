@@ -22,20 +22,25 @@ const Chart = () => {
 
         axios.get("https://api.covidtracking.com/v1/states/current.json")
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setLoading(false);
                 const dataObj = res.data;
                 let loopData = '';
 
-                for (let [key, value] of Object.entries(dataObj)) {
-                    if (key === "death" && value === true) {
-                        // loopData += covidDeaths.push(parseInt(dataObj.death))
-                        console.log(`${key} => ${value}`);
-                    }
-                    if (key === "date" && value === true) {
-                        // loopData += timePassed.push(parseInt(dataObj.date))
-                        console.log(`${key} => ${value}`);
-                    }
+                for (let [key, value] of Object.entries(res.data.death)) {
+                    console.log(`${key} => ${value}`);
+
+                    // if (key === "death") {
+                    //     // loopData += covidDeaths.push(parseInt(dataObj.death))
+                    //     // console.log(`${key} => ${value}`);
+                    //     console.log(JSON.stringify(covidDeaths));
+                    //     // console.log(covidDeaths);
+                    // }
+                    // if (key === "date") {
+                    //     // loopData += timePassed.push(parseInt(dataObj.date))
+                    //     // console.log(`${key} => ${value}`);
+                    //     console.log(timePassed);
+                    // }
 
                     // matchedState.push(parseInt(dataObj.state))
 
