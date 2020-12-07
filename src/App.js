@@ -10,6 +10,7 @@ import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
 import Chart2 from "./components/Chart2.js";
 import ChartTest from "./components/ChartTest.js";
+import LoopTest from "./components/LoopTest.js";
 import ToggleButtons from "./components/ToggleButtons.js";
 import "./App.css";
 
@@ -67,7 +68,7 @@ export default function App() {
               <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
             </div>
             <ToggleButtons />
-            <ChartTest />
+            <LoopTest />
           </Popup>
         ) : null}
 

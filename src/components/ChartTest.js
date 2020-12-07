@@ -27,7 +27,7 @@ const Chart = () => {
                 const dataObj = res.data;
                 let loopData = '';
 
-                for (let [key, value] of Object.entries(res.data.death)) {
+                for (let [key, value] of Object.entries(res.data)) {
                     console.log(`${key} => ${value}`);
 
                     // if (key === "death") {
