@@ -8,6 +8,9 @@ import ReactMapGL, {
 // import covidData from "./data/geojson.json";
 import statesCoordinates from "./data/states.json";
 import Chart from "./components/Chart.js";
+import Chart2 from "./components/Chart2.js";
+import ChartTest from "./components/ChartTest.js";
+import LoopTest from "./components/LoopTest.js";
 import ToggleButtons from "./components/ToggleButtons.js";
 import "./App.css";
 
@@ -18,7 +21,7 @@ export default function App() {
     longitude: -73.977085,
     width: "100vw",
     height: "100vh",
-    zoom: 6.5,
+    zoom: 5,
   });
   const [selectedInfection, setSelectedInfection] = useState(null);
 
@@ -62,10 +65,10 @@ export default function App() {
             }}
           >
             <div>
-              <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
+              <h3 style={{ textAlign: "center", paddingTop: "10px" }}>{selectedInfection.state}</h3>
             </div>
-            <ToggleButtons />
-            <Chart />
+            {/* <ToggleButtons /> */}
+            <LoopTest />
           </Popup>
         ) : null}
 
@@ -85,7 +88,7 @@ export default function App() {
           />
         </div>
       </ReactMapGL>
-    </div>
+    </div >
   );
 }
 
