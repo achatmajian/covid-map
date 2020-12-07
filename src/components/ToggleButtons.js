@@ -10,7 +10,7 @@ export default function ToggleButtons() {
     const handleChange = val => setValue(val);
 
     return (
-        <Row horizontal='center'>
+        <Row horizontal='center' style={{ paddingLeft: "10px", paddingRight: "10px" }}>
             <ToggleButtonGroup
                 size="sm"
                 name="value"
@@ -18,10 +18,9 @@ export default function ToggleButtons() {
                 value={value}
                 onChange={handleChange}>
 
-                <ToggleButton value={1} variant="secondary">Deaths</ToggleButton>
-                <ToggleButton value={2} variant="secondary">Hospitalizations</ToggleButton>
-                <ToggleButton value={3} variant="secondary">Positive</ToggleButton>
-                <ToggleButton value={4} variant="secondary">Negative</ToggleButton>
+                <ToggleButton value={1} variant="secondary">Testing</ToggleButton>
+                <ToggleButton value={2} variant="secondary">Hospitalization</ToggleButton>
+                <ToggleButton value={3} variant="secondary">Death</ToggleButton>
             </ToggleButtonGroup>
         </Row>
 

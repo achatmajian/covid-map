@@ -1,4 +1,7 @@
 import React from "react";
+import ToggleButtons from "./ToggleButtons.js";
+import "./LoopTestStyles.css";
+
 
 export default class LoopTest extends React.Component {
 
@@ -26,25 +29,27 @@ export default class LoopTest extends React.Component {
 
         return (
             <div>
-                <div><strong>State:</strong> {this.state.usaState.state}</div>
-                <div><strong>Data Updated Last:</strong> {this.state.usaState.lastUpdateEt}</div>
+
+                {/* <div className="data-title"><strong>State:</strong> {this.state.usaState.state}</div> */}
+                <div className="data-item" id="data-updated"><strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}</div>
+                <ToggleButtons />
                 <br />
 
-                <div><strong>Testing:</strong></div>
-                <div><strong>Number of Positive Cases:</strong> {this.state.usaState.positive}</div>
-                <div><strong>Number of Negative Cases:</strong> {this.state.usaState.negative}</div>
+                <div className="data-title"><strong>Testing:</strong></div>
+                <div className="data-item"><strong>Positive Cases:</strong> {this.state.usaState.positive}</div>
+                <div className="data-item"><strong>Negative Cases:</strong> {this.state.usaState.negative}</div>
                 <br />
 
-                <div><strong>Hospitalizations:</strong></div>
-                <div><strong>Total Hospitalizations</strong> {this.state.usaState.hospitalizedCumulative}</div>
-                <div><strong>Currently Hospitalized:</strong> {this.state.usaState.hospitalizedCurrently}</div>
-                <div><strong>Currently in ICU:</strong> {this.state.usaState.inIcuCurrently}</div>
-                <div><strong>Currently on Ventilator:</strong> {this.state.usaState.onVentilatorCurrently}</div>
+                <div className="data-title"><strong>Hospitalization:</strong></div>
+                <div className="data-item"><strong>Total Hospitalized:</strong> {this.state.usaState.hospitalizedCumulative}</div>
+                <div className="data-item"><strong>Currently Hospitalized:</strong> {this.state.usaState.hospitalizedCurrently}</div>
+                <div className="data-item"><strong>Currently in ICU:</strong> {this.state.usaState.inIcuCurrently}</div>
+                <div className="data-item"><strong>Currently on Ventilator:</strong> {this.state.usaState.onVentilatorCurrently}</div>
                 <br />
 
-                <div><strong>Death:</strong></div>
-                <div><strong>Number of Deaths:</strong> {this.state.usaState.death}</div>
-                <div><strong>Deaths Since Yesterday:</strong> {this.state.usaState.deathIncrease}</div>
+                <div className="data-title"><strong>Death:</strong></div>
+                <div className="data-item"><strong>Deaths:</strong> {this.state.usaState.death}</div>
+                <div className="data-item"><strong>Deaths Since Yesterday:</strong> {this.state.usaState.deathIncrease}</div>
                 <br />
 
             </div>

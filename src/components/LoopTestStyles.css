@@ -1,0 +1,16 @@
+.section-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.data-title {
+    text-align: center;
+}
+
+.data-item {
+    text-align: center;
+}
+
+#data-updated {
+    padding-bottom: 10px;
+}

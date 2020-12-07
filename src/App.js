@@ -21,7 +21,7 @@ export default function App() {
     longitude: -73.977085,
     width: "100vw",
     height: "100vh",
-    zoom: 6.5,
+    zoom: 5,
   });
   const [selectedInfection, setSelectedInfection] = useState(null);
 
@@ -65,9 +65,9 @@ export default function App() {
             }}
           >
             <div>
-              <h2 style={{ textAlign: "center" }}>{selectedInfection.state}</h2>
+              <h3 style={{ textAlign: "center", paddingTop: "10px" }}>{selectedInfection.state}</h3>
             </div>
-            <ToggleButtons />
+            {/* <ToggleButtons /> */}
             <LoopTest />
           </Popup>
         ) : null}
@@ -88,7 +88,7 @@ export default function App() {
           />
         </div>
       </ReactMapGL>
-    </div>
+    </div >
   );
 }
 
