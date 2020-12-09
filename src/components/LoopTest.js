@@ -30,7 +30,7 @@ export default class LoopTest extends React.Component {
         return (
             <div>
 
-                {/* <div className="data-title"><strong>State:</strong> {this.state.usaState.state}</div> */}
+                <div className="data-title"><strong>State:</strong> {this.state.usaState.state}</div>
                 <div className="data-item" id="data-updated"><strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}</div>
                 <ToggleButtons />
                 <br />
