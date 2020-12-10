@@ -1,5 +1,6 @@
 import React from "react";
 import ToggleButtons from "./ToggleButtons.js";
+import ToggleButtons3 from "./ToggleButtons3.js";
 import "./LoopTestStyles.css";
 
 export default class LoopTest extends React.Component {
@@ -51,7 +52,7 @@ export default class LoopTest extends React.Component {
                 <div className="data-item" id="data-updated">
                     <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
                 </div>
-                <ToggleButtons />
+                <ToggleButtons3 />
                 <br />
 
                 <div className="data-title">
