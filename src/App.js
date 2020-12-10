@@ -47,6 +47,9 @@ export default function App() {
               className="marker-btn"
               onClick={(e) => {
                 e.preventDefault();
+                {
+                  /* console.log('Inside parent', infection.id) */
+                }
                 setSelectedInfection(infection);
               }}
             >
@@ -65,10 +68,12 @@ export default function App() {
             }}
           >
             <div>
-              <h3 style={{ textAlign: "center", paddingTop: "10px" }}>{selectedInfection.state}</h3>
+              <h3 style={{ textAlign: "center", paddingTop: "10px" }}>
+                {selectedInfection.state}
+              </h3>
             </div>
             {/* <ToggleButtons /> */}
-            <LoopTest />
+            <LoopTest stateId={selectedInfection.id} />
           </Popup>
         ) : null}
 
@@ -88,7 +93,7 @@ export default function App() {
           />
         </div>
       </ReactMapGL>
-    </div >
+    </div>
   );
 }
 
