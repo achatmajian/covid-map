@@ -2,6 +2,9 @@ import React from "react";
 import ToggleButtons from "./ToggleButtons.js";
 import ToggleButtons3 from "./ToggleButtons3.js";
 import "./LoopTestStyles.css";
+import $ from "jquery";
+import Button from 'react-bootstrap/Button';
+import { Row } from "simple-flexbox";
 
 export default class LoopTest extends React.Component {
     constructor(props) {
@@ -16,7 +19,9 @@ export default class LoopTest extends React.Component {
     }
 
     toggleData = () => {
-
+        $("#test-btn").click(function () {
+            $("#testing-data").hide();
+        });
     }
 
     getData = async () => {
@@ -51,6 +56,7 @@ export default class LoopTest extends React.Component {
 
         return (
             <div>
+
                 <div className="data-title">
                     <strong>State:</strong> {this.state.usaState.state}
                 </div>
@@ -58,50 +64,65 @@ export default class LoopTest extends React.Component {
                     <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
                 </div>
 
+                <Row horizontal='center'>
+                    <Button variant="success" size="sm" id="test-btn" className="button">Testing</Button>
+                    <Button variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
+                    <Button variant="danger" size="sm" id="death-btn" className="button">Death</Button>
+                </Row>
+
+                <hr />
+
+                <div id="testing-data">
+                    <div className="data-title">
+                        <strong>Testing Data:</strong>
+                    </div>
+                    <div className="data-item">
+                        <strong>Positive Cases:</strong> {this.state.usaState.positive}
+                    </div>
+                    <div className="data-item">
+                        <strong>Negative Cases:</strong> {this.state.usaState.negative}
+                    </div>
+                </div>
+
                 <br />
 
-                <div className="data-title">
-                    <strong>Testing Data:</strong>
+                <div id="hosp-data">
+                    <div className="data-title">
+                        <strong>Hospitalization Data:</strong>
+                    </div>
+                    <div className="data-item">
+                        <strong>Total Hospitalized:</strong>{" "}
+                        {this.state.usaState.hospitalizedCumulative}
+                    </div>
+                    <div className="data-item">
+                        <strong>Currently Hospitalized:</strong>{" "}
+                        {this.state.usaState.hospitalizedCurrently}
+                    </div>
+                    <div className="data-item">
+                        <strong>Currently in ICU:</strong>{" "}
+                        {this.state.usaState.inIcuCurrently}
+                    </div>
+                    <div className="data-item">
+                        <strong>Currently on Ventilator:</strong>{" "}
+                        {this.state.usaState.onVentilatorCurrently}
+                    </div>
                 </div>
-                <div className="data-item">
-                    <strong>Positive Cases:</strong> {this.state.usaState.positive}
-                </div>
-                <div className="data-item">
-                    <strong>Negative Cases:</strong> {this.state.usaState.negative}
-                </div>
+
                 <br />
 
-                <div className="data-title">
-                    <strong>Hospitalization Data:</strong>
+                <div id="death-data">
+                    <div className="data-title">
+                        <strong>Death Data:</strong>
+                    </div>
+                    <div className="data-item">
+                        <strong>Deaths:</strong> {this.state.usaState.death}
+                    </div>
+                    <div className="data-item">
+                        <strong>Deaths Since Yesterday:</strong>{" "}
+                        {this.state.usaState.deathIncrease}
+                    </div>
                 </div>
-                <div className="data-item">
-                    <strong>Total Hospitalized:</strong>{" "}
-                    {this.state.usaState.hospitalizedCumulative}
-                </div>
-                <div className="data-item">
-                    <strong>Currently Hospitalized:</strong>{" "}
-                    {this.state.usaState.hospitalizedCurrently}
-                </div>
-                <div className="data-item">
-                    <strong>Currently in ICU:</strong>{" "}
-                    {this.state.usaState.inIcuCurrently}
-                </div>
-                <div className="data-item">
-                    <strong>Currently on Ventilator:</strong>{" "}
-                    {this.state.usaState.onVentilatorCurrently}
-                </div>
-                <br />
 
-                <div className="data-title">
-                    <strong>Death Data:</strong>
-                </div>
-                <div className="data-item">
-                    <strong>Deaths:</strong> {this.state.usaState.death}
-                </div>
-                <div className="data-item">
-                    <strong>Deaths Since Yesterday:</strong>{" "}
-                    {this.state.usaState.deathIncrease}
-                </div>
                 <br />
                 {/* <ToggleButtons3 /> */}
             </div>
