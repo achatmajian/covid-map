@@ -63,6 +63,8 @@ export default function App() {
           <Popup
             latitude={selectedInfection.latitude}
             longitude={selectedInfection.longitude}
+            closeOnClick={false}
+            anchor="left"
             onClose={() => {
               setSelectedInfection(null);
             }}
