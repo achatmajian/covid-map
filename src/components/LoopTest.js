@@ -11,7 +11,12 @@ export default class LoopTest extends React.Component {
             loading: true,
             usaState: null,
             allStates: null,
+            // showHospData: false,
         };
+    }
+
+    toggleData = () => {
+
     }
 
     getData = async () => {
@@ -52,7 +57,7 @@ export default class LoopTest extends React.Component {
                 <div className="data-item" id="data-updated">
                     <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
                 </div>
-                <ToggleButtons3 />
+
                 <br />
 
                 <div className="data-title">
@@ -98,6 +103,7 @@ export default class LoopTest extends React.Component {
                     {this.state.usaState.deathIncrease}
                 </div>
                 <br />
+                {/* <ToggleButtons3 /> */}
             </div>
         );
     }
