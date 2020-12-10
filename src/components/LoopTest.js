@@ -21,7 +21,6 @@ export default class LoopTest extends React.Component {
     };
 
     async componentDidMount() {
-        const { allStates } = this.state
         const data = await this.getData();
         this.setState({ allStates: data });
         this.setState({ usaState: data[this.props.stateId], loading: false });
