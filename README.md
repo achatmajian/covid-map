@@ -28,5 +28,5 @@ Data for this project was gathered and provided by [The COVID Tracking Project A
 
 ## Team
 
-Arek Chatmajian - Front-End Developement, UX/UI Design  
+Arek Chatmajian - Full-Stack Development, UX/UI Design  
 Justin Perry - Back-End Development, Advisor
