@@ -7,21 +7,23 @@ import ReactMapGL, {
 } from "react-map-gl";
 // import covidData from "./data/geojson.json";
 import statesCoordinates from "./data/states.json";
-import Chart from "./components/Chart.js";
-import Chart2 from "./components/Chart2.js";
-import ChartTest from "./components/ChartTest.js";
-import LoopTest from "./components/LoopTest.js";
-import ToggleButtons from "./components/ToggleButtons.js";
+// import Chart from "./components/Chart.js";
+// import Chart2 from "./components/Chart2.js";
+// import ChartTest from "./components/ChartTest.js";
+// import ToggleButtons from "./components/ToggleButtons.js";
+import DataRender from "./components/DataRender.js";
 import "./App.css";
 
 export default function App() {
   /* ======= Viewport set up ======= */
   const [viewport, setViewport] = useState({
-    latitude: 40.757535,
-    longitude: -73.977085,
+    // latitude: 40.757535,
+    // longitude: -73.977085,
+    latitude: 39.828175,
+    longitude: -98.5795,
     width: "100vw",
     height: "100vh",
-    zoom: 4,
+    zoom: 3.8,
   });
   const [selectedInfection, setSelectedInfection] = useState(null);
 
@@ -47,9 +49,6 @@ export default function App() {
               className="marker-btn"
               onClick={(e) => {
                 e.preventDefault();
-                {
-                  /* console.log('Inside parent', infection.id) */
-                }
                 setSelectedInfection(infection);
               }}
             >
@@ -75,7 +74,7 @@ export default function App() {
               </h3>
             </div>
             {/* <ToggleButtons /> */}
-            <LoopTest stateId={selectedInfection.id} />
+            <DataRender stateId={selectedInfection.id} />
           </Popup>
         ) : null}
 
@@ -98,5 +97,3 @@ export default function App() {
     </div>
   );
 }
-
-//Test
