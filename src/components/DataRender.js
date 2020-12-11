@@ -6,7 +6,7 @@ import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 
-export default class LoopTest extends React.Component {
+export default class DataRender extends React.Component {
     constructor(props) {
         super(props);
 
