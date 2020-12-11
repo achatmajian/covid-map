@@ -1,8 +1,8 @@
 import React from "react";
 import ToggleButtons from "./ToggleButtons.js";
 import ToggleButtons3 from "./ToggleButtons3.js";
-import "./LoopTestStyles.css";
 import $ from "jquery";
+import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 
