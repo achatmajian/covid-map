@@ -15,8 +15,8 @@ export default class LoopTest extends React.Component {
             usaState: null,
             allStates: null,
             showTesting: true,
-            showHosp: true,
-            showDeath: true,
+            showHosp: false,
+            showDeath: false,
         };
     }
 
@@ -149,10 +149,6 @@ export default class LoopTest extends React.Component {
                         : null
                 }
 
-
-
-                <br />
-                {/* <ToggleButtons3 /> */}
             </div>
         );
     }
