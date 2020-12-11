@@ -14,7 +14,9 @@ export default class LoopTest extends React.Component {
             loading: true,
             usaState: null,
             allStates: null,
-            showData: true,
+            showTesting: true,
+            showHosp: true,
+            showDeath: true,
         };
     }
 
@@ -39,9 +41,21 @@ export default class LoopTest extends React.Component {
         }
     }
 
-    toggle() {
+    toggleTesting() {
         this.setState({
-            showData: !this.state.showData
+            showTesting: !this.state.showTesting
+        })
+    }
+
+    toggleHosp() {
+        this.setState({
+            showHosp: !this.state.showHosp
+        })
+    }
+
+    toggleDeath() {
+        this.setState({
+            showDeath: !this.state.showDeath
         })
     }
 
@@ -65,15 +79,15 @@ export default class LoopTest extends React.Component {
                 </div>
 
                 <Row horizontal='center'>
-                    <Button onClick={() => this.toggle()} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
-                    <Button variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
-                    <Button variant="danger" size="sm" id="death-btn" className="button">Death</Button>
+                    <Button onClick={() => this.toggleTesting()} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
+                    <Button onClick={() => this.toggleHosp()} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
+                    <Button onClick={() => this.toggleDeath()} variant="danger" size="sm" id="death-btn" className="button">Death</Button>
                 </Row>
 
                 <hr />
 
                 {
-                    this.state.showData ?
+                    this.state.showTesting ?
                         <div id="testing-data">
                             <div className="data-title">
                                 <strong>Testing Data:</strong>
@@ -88,63 +102,54 @@ export default class LoopTest extends React.Component {
                         : null
                 }
 
-                <button onClick={() => this.toggle()}>Click me</button>
+                <br />
 
-                {/* {
-                    this.state.toggle ?
-                        <div id="testing-data">
+                {
+                    this.state.showHosp ?
+                        <div id="hosp-data">
                             <div className="data-title">
-                                <strong>Testing Data:</strong>
+                                <strong>Hospitalization Data:</strong>
                             </div>
                             <div className="data-item">
-                                <strong>Positive Cases:</strong> {this.state.usaState.positive}
+                                <strong>Total Hospitalized:</strong>{" "}
+                                {this.state.usaState.hospitalizedCumulative}
                             </div>
                             <div className="data-item">
-                                <strong>Negative Cases:</strong> {this.state.usaState.negative}
+                                <strong>Currently Hospitalized:</strong>{" "}
+                                {this.state.usaState.hospitalizedCurrently}
+                            </div>
+                            <div className="data-item">
+                                <strong>Currently in ICU:</strong>{" "}
+                                {this.state.usaState.inIcuCurrently}
+                            </div>
+                            <div className="data-item">
+                                <strong>Currently on Ventilator:</strong>{" "}
+                                {this.state.usaState.onVentilatorCurrently}
                             </div>
                         </div>
                         : null
-                } */}
-
-
-                <br />
-
-                <div id="hosp-data">
-                    <div className="data-title">
-                        <strong>Hospitalization Data:</strong>
-                    </div>
-                    <div className="data-item">
-                        <strong>Total Hospitalized:</strong>{" "}
-                        {this.state.usaState.hospitalizedCumulative}
-                    </div>
-                    <div className="data-item">
-                        <strong>Currently Hospitalized:</strong>{" "}
-                        {this.state.usaState.hospitalizedCurrently}
-                    </div>
-                    <div className="data-item">
-                        <strong>Currently in ICU:</strong>{" "}
-                        {this.state.usaState.inIcuCurrently}
-                    </div>
-                    <div className="data-item">
-                        <strong>Currently on Ventilator:</strong>{" "}
-                        {this.state.usaState.onVentilatorCurrently}
-                    </div>
-                </div>
+                }
 
                 <br />
 
-                <div id="death-data">
-                    <div className="data-title">
-                        <strong>Death Data:</strong>
-                    </div>
-                    <div className="data-item">
-                        <strong>Deaths:</strong> {this.state.usaState.death}
-                    </div>
-                    <div className="data-item">
-                        <strong>Deaths Since Yesterday:</strong>{" "}
-                        {this.state.usaState.deathIncrease}
-                    </div>
-                </div>
+                {
+                    this.state.showDeath ?
+                        <div id="death-data">
+                            <div className="data-title">
+                                <strong>Death Data:</strong>
+                            </div>
+                            <div className="data-item">
+                                <strong>Deaths:</strong> {this.state.usaState.death}
+                            </div>
+                            <div className="data-item">
+                                <strong>Deaths Since Yesterday:</strong>{" "}
+                                {this.state.usaState.deathIncrease}
+                            </div>
+                        </div>
+                        : null
+                }
+
+
 
                 <br />
                 {/* <ToggleButtons3 /> */}
