@@ -20,3 +20,15 @@
     margin-right: 5px;
     margin-bottom: 5px;
 }
+
+#testing-data {
+    display: block;
+}
+
+#hosp-data {
+    display: block;
+}
+
+#death-data {
+    display: block;
+}
