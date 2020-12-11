@@ -14,31 +14,8 @@ export default class LoopTest extends React.Component {
             loading: true,
             usaState: null,
             allStates: null,
+            showData: true,
         };
-    }
-
-    toggleTest = () => {
-        $("#test-btn").click(function () {
-            $('#testing-data').css('display', 'block');
-            $("#hosp-data").css('display', 'none');
-            $("#death-data").css('display', 'none');
-        });
-    }
-
-    toggleHosp = () => {
-        $("#hosp-btn").click(function () {
-            $("#testing-data").hide();
-            $("#hosp-data").show();
-            $("#death-data").hide();
-        });
-    }
-
-    toggleDeath = () => {
-        $("#death-btn").click(function () {
-            $("#testing-data").hide();
-            $("#hosp-data").hide();
-            $("#death-data").show();
-        });
     }
 
     getData = async () => {
@@ -62,6 +39,12 @@ export default class LoopTest extends React.Component {
         }
     }
 
+    toggle() {
+        this.setState({
+            showData: !this.state.showData
+        })
+    }
+
     render() {
         if (this.state.loading) {
             return <div>Loading...</div>;
@@ -82,24 +65,47 @@ export default class LoopTest extends React.Component {
                 </div>
 
                 <Row horizontal='center'>
-                    <Button variant="success" size="sm" id="test-btn" className="button">Testing</Button>
+                    <Button onClick={() => this.toggle()} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
                     <Button variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
                     <Button variant="danger" size="sm" id="death-btn" className="button">Death</Button>
                 </Row>
 
                 <hr />
 
-                <div id="testing-data">
-                    <div className="data-title">
-                        <strong>Testing Data:</strong>
-                    </div>
-                    <div className="data-item">
-                        <strong>Positive Cases:</strong> {this.state.usaState.positive}
-                    </div>
-                    <div className="data-item">
-                        <strong>Negative Cases:</strong> {this.state.usaState.negative}
-                    </div>
-                </div>
+                {
+                    this.state.showData ?
+                        <div id="testing-data">
+                            <div className="data-title">
+                                <strong>Testing Data:</strong>
+                            </div>
+                            <div className="data-item">
+                                <strong>Positive Cases:</strong> {this.state.usaState.positive}
+                            </div>
+                            <div className="data-item">
+                                <strong>Negative Cases:</strong> {this.state.usaState.negative}
+                            </div>
+                        </div>
+                        : null
+                }
+
+                <button onClick={() => this.toggle()}>Click me</button>
+
+                {/* {
+                    this.state.toggle ?
+                        <div id="testing-data">
+                            <div className="data-title">
+                                <strong>Testing Data:</strong>
+                            </div>
+                            <div className="data-item">
+                                <strong>Positive Cases:</strong> {this.state.usaState.positive}
+                            </div>
+                            <div className="data-item">
+                                <strong>Negative Cases:</strong> {this.state.usaState.negative}
+                            </div>
+                        </div>
+                        : null
+                } */}
+
 
                 <br />
 

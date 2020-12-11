@@ -26,9 +26,9 @@
 }
 
 #hosp-data {
-    display: none;
+    display: block;
 }
 
 #death-data {
-    display: none;
+    display: block;
 }
