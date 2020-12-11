@@ -1,10 +1,11 @@
 import React from "react";
-import ToggleButtons from "./ToggleButtons.js";
-import ToggleButtons3 from "./ToggleButtons3.js";
-import $ from "jquery";
+// import ToggleButtons from "./ToggleButtons.js";
+// import ToggleButtons3 from "./ToggleButtons3.js";
+// import $ from "jquery";
 import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class DataRender extends React.Component {
     constructor(props) {
