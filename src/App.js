@@ -21,7 +21,7 @@ export default function App() {
     longitude: -73.977085,
     width: "100vw",
     height: "100vh",
-    zoom: 5,
+    zoom: 4,
   });
   const [selectedInfection, setSelectedInfection] = useState(null);
 

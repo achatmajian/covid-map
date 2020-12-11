@@ -14,13 +14,30 @@ export default class LoopTest extends React.Component {
             loading: true,
             usaState: null,
             allStates: null,
-            // showHospData: false,
         };
     }
 
-    toggleData = () => {
+    toggleTest = () => {
         $("#test-btn").click(function () {
+            $('#testing-data').css('display', 'block');
+            $("#hosp-data").css('display', 'none');
+            $("#death-data").css('display', 'none');
+        });
+    }
+
+    toggleHosp = () => {
+        $("#hosp-btn").click(function () {
             $("#testing-data").hide();
+            $("#hosp-data").show();
+            $("#death-data").hide();
+        });
+    }
+
+    toggleDeath = () => {
+        $("#death-btn").click(function () {
+            $("#testing-data").hide();
+            $("#hosp-data").hide();
+            $("#death-data").show();
         });
     }
 
@@ -58,7 +75,7 @@ export default class LoopTest extends React.Component {
             <div>
 
                 <div className="data-title">
-                    <strong>State:</strong> {this.state.usaState.state}
+                    <strong>State Abbreviation:</strong> {this.state.usaState.state}
                 </div>
                 <div className="data-item" id="data-updated">
                     <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
