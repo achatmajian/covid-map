@@ -4,7 +4,7 @@ This project was used to show areas of the United States with confirmed cases of
 
 ## App Preview
 
-![App Preview Clip](https://i.ibb.co/HYh7c6B/covid-map-clip.gif)
+!(http://www.sheawong.com/wp-content/uploads/2013/08/keephatin.gif)
 
 ## Deployed App Link
 
