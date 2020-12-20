@@ -75,6 +75,7 @@ export default function App() {
             </div>
             {/* <ToggleButtons /> */}
             <DataRender stateId={selectedInfection.id} />
+            {/* Whenever Popup is clicked, it takes id from local json file states.json and passes it to DataRender.js */}
           </Popup>
         ) : null}
 

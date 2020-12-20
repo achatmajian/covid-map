@@ -12,9 +12,11 @@ export default class DataRender extends React.Component {
         super(props);
 
         this.state = {
+            // Props for data rendering in pop up 
             loading: true,
             usaState: null,
             allStates: null,
+            // Props for data toggle in pop up 
             showTesting: true,
             showHosp: false,
             showDeath: false,
@@ -28,32 +30,40 @@ export default class DataRender extends React.Component {
         return data;
     };
 
+    // Component fires when marker is clicked
     async componentDidMount() {
         const data = await this.getData();
         this.setState({ allStates: data });
         this.setState({ usaState: data[this.props.stateId], loading: false });
     }
 
+    // Compares states from local JSON (stateId), compared to states pulled from api (allStates)
     componentDidUpdate(prevProps) {
+        // Has current props
         const { stateId } = this.props;
+        // Checks against stateID
         const { allStates } = this.state
+        // If props from previous state don't equal stateId of current, render data for new state that is clicked
         if (prevProps.stateId !== stateId) {
             this.setState({ usaState: allStates[stateId], loading: false });
         }
     }
 
+    //Toggle logic for testing data
     toggleTesting() {
         this.setState({
             showTesting: !this.state.showTesting
         })
     }
 
+    //Toggle logic for hospitalization data
     toggleHosp() {
         this.setState({
             showHosp: !this.state.showHosp
         })
     }
 
+    //Toggle logic for death data
     toggleDeath() {
         this.setState({
             showDeath: !this.state.showDeath
@@ -72,6 +82,7 @@ export default class DataRender extends React.Component {
         return (
             <div>
 
+                {/* US State Information */}
                 <div className="data-title">
                     <strong>State Abbreviation:</strong> {this.state.usaState.state}
                 </div>
@@ -79,6 +90,7 @@ export default class DataRender extends React.Component {
                     <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
                 </div>
 
+                {/* Toggle Buttons */}
                 <Row horizontal='center'>
                     <Button onClick={() => this.toggleTesting()} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
                     <Button onClick={() => this.toggleHosp()} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
@@ -87,6 +99,7 @@ export default class DataRender extends React.Component {
 
                 <hr />
 
+                {/* Testing Data Render */}
                 {
                     this.state.showTesting ?
                         <div id="testing-data">
@@ -105,6 +118,7 @@ export default class DataRender extends React.Component {
 
                 <br />
 
+                {/* Hospitalization Data Render */}
                 {
                     this.state.showHosp ?
                         <div id="hosp-data">
@@ -133,6 +147,7 @@ export default class DataRender extends React.Component {
 
                 <br />
 
+                {/* Death Data Render */}
                 {
                     this.state.showDeath ?
                         <div id="death-data">
