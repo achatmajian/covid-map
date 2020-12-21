@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
+    AreaChart,
+    Area,
     LineChart,
     Line,
     XAxis,
@@ -17,6 +19,16 @@ import {
     ResponsiveContainer,
     LabelList
 } from "recharts";
+
+const dataTest = [
+    { name: 'March', tested: 4000, hospitalized: 2400, dead: 2400 },
+    { name: 'April', tested: 3000, hospitalized: 1398, dead: 2210 },
+    { name: 'May', tested: 2000, hospitalized: 9800, dead: 2290 },
+    { name: 'June', tested: 2780, hospitalized: 3908, dead: 2000 },
+    { name: 'July', tested: 1890, hospitalized: 4800, dead: 2181 },
+    { name: 'August', tested: 2390, hospitalized: 3800, dead: 2500 },
+    { name: 'September', tested: 3490, hospitalized: 4300, dead: 2100 },
+];
 
 export default class DataRender extends React.Component {
     constructor(props) {
@@ -80,6 +92,8 @@ export default class DataRender extends React.Component {
             showDeath: !this.state.showDeath
         })
     }
+
+
 
     render() {
         if (this.state.loading) {
@@ -176,14 +190,26 @@ export default class DataRender extends React.Component {
                         : null
                 }
 
-                <h2>Chart Goes Here</h2>
-                <div style={{ maxWidth: "800px", margin: "0 auto", height: "400px" }}>
-                    <ResponsiveContainer>
-                        <LineChart data={this.state.usaState}>
+                <br />
 
-                        </LineChart>
-                    </ResponsiveContainer>
+                <div>
+                    {/* <h2>Chart Goes Here</h2> */}
+                    <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
+                        <ResponsiveContainer>
+                            <LineChart width={600} height={300} data={dataTest}
+                                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                                <XAxis dataKey="name" />
+                                <YAxis />
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <Tooltip />
+                                <Legend />
+                                <Line type="monotone" dataKey="tested" stroke="#28a745" />
+                                <Line type="monotone" dataKey="hospitalized" stroke="#ffc107" />
+                                <Line type="monotone" dataKey="dead" stroke="#e25a67" />
+                            </LineChart>
+                        </ResponsiveContainer>
 
+                    </div>
                 </div>
 
             </div>
