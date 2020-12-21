@@ -6,6 +6,17 @@ import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+    LabelList
+} from "recharts";
 
 export default class DataRender extends React.Component {
     constructor(props) {
@@ -164,6 +175,16 @@ export default class DataRender extends React.Component {
                         </div>
                         : null
                 }
+
+                <h2>Chart Goes Here</h2>
+                <div style={{ maxWidth: "800px", margin: "0 auto", height: "400px" }}>
+                    <ResponsiveContainer>
+                        <LineChart data={this.state.usaState}>
+
+                        </LineChart>
+                    </ResponsiveContainer>
+
+                </div>
 
             </div>
         );
