@@ -21,13 +21,13 @@ import {
 } from "recharts";
 
 const dataTest = [
-    { name: 'March', tested: 4000, hospitalized: 2400, dead: 2400 },
-    { name: 'April', tested: 3000, hospitalized: 1398, dead: 2210 },
-    { name: 'May', tested: 2000, hospitalized: 9800, dead: 2290 },
-    { name: 'June', tested: 2780, hospitalized: 3908, dead: 2000 },
-    { name: 'July', tested: 1890, hospitalized: 4800, dead: 2181 },
-    { name: 'August', tested: 2390, hospitalized: 3800, dead: 2500 },
-    { name: 'September', tested: 3490, hospitalized: 4300, dead: 2100 },
+    { name: 'March', Tested: 4000, Hospitalized: 2400, Dead: 2400 },
+    { name: 'April', Tested: 3000, Hospitalized: 1398, Dead: 2210 },
+    { name: 'May', Tested: 2000, Hospitalized: 9800, Dead: 2290 },
+    { name: 'June', Tested: 2780, Hospitalized: 3908, Dead: 2000 },
+    { name: 'July', Tested: 1890, Hospitalized: 4800, Dead: 2181 },
+    { name: 'August', Tested: 2390, Hospitalized: 3800, Dead: 2500 },
+    { name: 'September', Tested: 3490, Hospitalized: 4300, Dead: 2100 },
 ];
 
 export default class DataRender extends React.Component {
@@ -203,9 +203,9 @@ export default class DataRender extends React.Component {
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <Tooltip />
                                 <Legend />
-                                <Line type="monotone" dataKey="tested" stroke="#28a745" />
-                                <Line type="monotone" dataKey="hospitalized" stroke="#ffc107" />
-                                <Line type="monotone" dataKey="dead" stroke="#e25a67" />
+                                <Line type="monotone" dataKey="Tested" stroke="#28a745" />
+                                <Line type="monotone" dataKey="Hospitalized" stroke="#ffc107" />
+                                <Line type="monotone" dataKey="Dead" stroke="#e25a67" />
                             </LineChart>
                         </ResponsiveContainer>
 
