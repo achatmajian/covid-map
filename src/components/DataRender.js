@@ -41,8 +41,8 @@ export default class DataRender extends React.Component {
             allStates: null,
             // Props for data toggle in pop up 
             showTesting: true,
-            showHosp: false,
-            showDeath: false,
+            showHosp: true,
+            showDeath: true,
         };
     }
 
@@ -111,8 +111,14 @@ export default class DataRender extends React.Component {
                 <div className="data-title">
                     <strong>State Abbreviation:</strong> {this.state.usaState.state}
                 </div>
-                <div className="data-item" id="data-updated">
-                    <strong>Data Updated:</strong> {this.state.usaState.lastUpdateEt}
+                {/* <div className="data-item">
+                    <strong>Current Date:</strong> {this.state.usaState.date}
+                </div> */}
+                <div className="data-item">
+                    <strong>Data Last Updated:</strong> {this.state.usaState.lastUpdateEt}
+                </div>
+                <div className="data-item" id="data-quality-padding">
+                    <strong><a href="https://covidtracking.com/about-data/state-grades" target="_blank" rel="noopener noreferrer">Data Quality Grade:</a></strong> {this.state.usaState.dataQualityGrade}
                 </div>
 
                 {/* Toggle Buttons */}
@@ -129,7 +135,7 @@ export default class DataRender extends React.Component {
                     this.state.showTesting ?
                         <div id="testing-data">
                             <div className="data-title">
-                                <strong>Testing Data:</strong>
+                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR Testing Data:</a></strong>
                             </div>
                             <div className="data-item">
                                 <strong>Positive Cases:</strong> {this.state.usaState.positive}
@@ -137,18 +143,17 @@ export default class DataRender extends React.Component {
                             <div className="data-item">
                                 <strong>Negative Cases:</strong> {this.state.usaState.negative}
                             </div>
+                            <br />
                         </div>
                         : null
                 }
-
-                <br />
 
                 {/* Hospitalization Data Render */}
                 {
                     this.state.showHosp ?
                         <div id="hosp-data">
                             <div className="data-title">
-                                <strong>Hospitalization Data:</strong>
+                                <strong><a href="https://covidtracking.com/about-data/data-definitions#hospitalization" target="_blank" rel="noopener noreferrer">Hospitalization Data:</a></strong>
                             </div>
                             <div className="data-item">
                                 <strong>Total Hospitalized:</strong>{" "}
@@ -166,32 +171,35 @@ export default class DataRender extends React.Component {
                                 <strong>Currently on Ventilator:</strong>{" "}
                                 {this.state.usaState.onVentilatorCurrently}
                             </div>
+                            <div className="data-item">
+                                <strong>Hospitalizations Since Yesterday:</strong>{" "}
+                                {this.state.usaState.hospitalizedIncrease}
+                            </div>
+                            <br />
                         </div>
                         : null
                 }
-
-                <br />
 
                 {/* Death Data Render */}
                 {
                     this.state.showDeath ?
                         <div id="death-data">
                             <div className="data-title">
-                                <strong>Death Data:</strong>
+                                <strong><a href="https://covidtracking.com/about-data/data-definitions#outcomes" target="_blank" rel="noopener noreferrer">Death Data:</a></strong>
                             </div>
                             <div className="data-item">
-                                <strong>Deaths:</strong> {this.state.usaState.death}
+                                <strong>Total Deaths:</strong> {this.state.usaState.death}
                             </div>
                             <div className="data-item">
                                 <strong>Deaths Since Yesterday:</strong>{" "}
                                 {this.state.usaState.deathIncrease}
                             </div>
+                            <br />
                         </div>
                         : null
                 }
 
-                <br />
-
+                {/* Chart Render */}
                 <div>
                     {/* <h2>Chart Goes Here</h2> */}
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
