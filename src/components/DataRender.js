@@ -41,8 +41,8 @@ export default class DataRender extends React.Component {
             allStates: null,
             // Props for data toggle in pop up 
             showTesting: true,
-            showHosp: true,
-            showDeath: true,
+            showHosp: false,
+            showDeath: false,
         };
     }
 
@@ -134,15 +134,58 @@ export default class DataRender extends React.Component {
                 {
                     this.state.showTesting ?
                         <div id="testing-data">
-                            <div className="data-title">
-                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR Testing Data:</a></strong>
+
+                            {/* Cases */}
+                            <div className="cases">
+                                <div className="data-title">
+                                    <strong><a href="https://covidtracking.com/about-data/data-definitions#cases" target="_blank" rel="noopener noreferrer">COVID-19 Cases</a></strong>
+                                </div>
+                                <div className="data-item">
+                                    <strong>Total Positive Cases:</strong> {this.state.usaState.positive}
+                                </div>
+                                <div className="data-item">
+                                    <strong>New Daily Positive Increase:</strong> {this.state.usaState.positiveIncrease}
+                                </div>
                             </div>
-                            <div className="data-item">
-                                <strong>Positive Cases:</strong> {this.state.usaState.positive}
+
+                            {/* PCR Tests */}
+                            <div className="pcr-tests">
+                                <div className="data-title">
+                                    <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR (Nasal Swab) Testing Data:</a></strong>
+                                </div>
+                                {/* Data Field is Null */}
+                                {/* <div className="data-item">
+                                    <strong>Total PCR Tests:</strong> {this.state.usaState.totalTestsPeopleViral}
+                                </div> */}
+                                <div className="data-item">
+                                    <strong>Positive PCR Tests:</strong> {this.state.usaState.positiveCasesViral}
+                                </div>
+                                <div className="data-item">
+                                    <strong>Negative PCR Tests:</strong> {this.state.usaState.negative}
+                                </div>
+
                             </div>
-                            <div className="data-item">
-                                <strong>Negative Cases:</strong> {this.state.usaState.negative}
+
+                            {/* Antibody Tests */}
+                            <div className="antibody-tests">
+                                <div className="data-title">
+                                    <strong><a href="https://covidtracking.com/about-data/data-definitions#antibody-tests" target="_blank" rel="noopener noreferrer">Antibody Testing Data:</a></strong>
+                                </div>
                             </div>
+
+                            {/* Antigen Tests */}
+                            <div className="antigen-tests">
+                                <div className="data-title">
+                                    <strong><a href="https://covidtracking.com/about-data/data-definitions#antigen-tests" target="_blank" rel="noopener noreferrer">Antigen Testing Data:</a></strong>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
                             <br />
                         </div>
                         : null
@@ -200,8 +243,7 @@ export default class DataRender extends React.Component {
                 }
 
                 {/* Chart Render */}
-                <div>
-                    {/* <h2>Chart Goes Here</h2> */}
+                {/* <div>
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
                             <LineChart width={600} height={300} data={dataTest}
@@ -216,9 +258,8 @@ export default class DataRender extends React.Component {
                                 <Line type="monotone" dataKey="Dead" stroke="#e25a67" />
                             </LineChart>
                         </ResponsiveContainer>
-
                     </div>
-                </div>
+                </div> */}
 
             </div>
         );

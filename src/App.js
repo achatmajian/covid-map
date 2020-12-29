@@ -64,6 +64,7 @@ export default function App() {
             longitude={selectedInfection.longitude}
             closeOnClick={false}
             anchor="left"
+            dynamicPosition={true}
             onClose={() => {
               setSelectedInfection(null);
             }}
