@@ -41,8 +41,8 @@ export default class DataRender extends React.Component {
             allStates: null,
             // Props for data toggle in pop up 
             showTesting: true,
-            showHosp: true,
-            showDeath: true,
+            showHosp: false,
+            showDeath: false,
         };
     }
 
@@ -135,8 +135,11 @@ export default class DataRender extends React.Component {
                     this.state.showTesting ?
                         <div id="testing-data">
                             <div className="data-title">
-                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR Testing Data:</a></strong>
+                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR (Nasal Swab) Testing Data:</a></strong>
                             </div>
+                            {/* <div className="data-item">
+                                <strong>Confirmed Positive PCR Cases:</strong> {this.state.usaState.positiveCasesViral}
+                            </div> */}
                             <div className="data-item">
                                 <strong>Positive Cases:</strong> {this.state.usaState.positive}
                             </div>
@@ -201,7 +204,6 @@ export default class DataRender extends React.Component {
 
                 {/* Chart Render */}
                 <div>
-                    {/* <h2>Chart Goes Here</h2> */}
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
                             <LineChart width={600} height={300} data={dataTest}
@@ -216,7 +218,6 @@ export default class DataRender extends React.Component {
                                 <Line type="monotone" dataKey="Dead" stroke="#e25a67" />
                             </LineChart>
                         </ResponsiveContainer>
-
                     </div>
                 </div>
 

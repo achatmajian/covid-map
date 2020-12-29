@@ -13,6 +13,9 @@ import statesCoordinates from "./data/states.json";
 // import ToggleButtons from "./components/ToggleButtons.js";
 import DataRender from "./components/DataRender.js";
 import "./App.css";
+import Card from 'react-bootstrap/Card';
+import "bootstrap/dist/css/bootstrap.min.css";
+import UsaCard from "./components/UsaCard.js";
 
 export default function App() {
   /* ======= Viewport set up ======= */
@@ -64,6 +67,7 @@ export default function App() {
             longitude={selectedInfection.longitude}
             closeOnClick={false}
             anchor="left"
+            dynamicPosition={true}
             onClose={() => {
               setSelectedInfection(null);
             }}
@@ -94,6 +98,16 @@ export default function App() {
             trackUserLocation={true}
           />
         </div>
+
+        {/* USA Card */}
+        {/* <div style={{ position: "absolute", right: 0, marginTop: "580px", marginRight: "30px" }}>
+          <Card>
+            <Card.Body style={{ fontSize: "10px" }}>This is some text within a card body.</Card.Body>
+          </Card>
+        </div> */}
+
+        <UsaCard />
+
       </ReactMapGL>
     </div>
   );
