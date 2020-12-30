@@ -6,19 +6,19 @@ import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-    AreaChart,
-    Area,
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    LabelList
-} from "recharts";
+// import {
+//     AreaChart,
+//     Area,
+//     LineChart,
+//     Line,
+//     XAxis,
+//     YAxis,
+//     CartesianGrid,
+//     Tooltip,
+//     Legend,
+//     ResponsiveContainer,
+//     LabelList
+// } from "recharts";
 import NumberFormat from 'react-number-format';
 
 const dataTest = [
@@ -42,8 +42,8 @@ export default class DataRender extends React.Component {
             allStates: null,
             // Props for data toggle in pop up 
             showTesting: true,
-            showHosp: false,
-            showDeath: false,
+            showHosp: true,
+            showDeath: true,
         };
     }
 
@@ -136,7 +136,7 @@ export default class DataRender extends React.Component {
                     this.state.showTesting ?
                         <div id="testing-data">
                             <div className="data-title">
-                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">PCR (Nasal Swab) Testing Data:</a></strong>
+                                <strong><a href="https://covidtracking.com/about-data/data-definitions#pcr-tests" target="_blank" rel="noopener noreferrer">Testing Data:</a></strong>
                             </div>
                             {/* <div className="data-item">
                                 <strong>Confirmed Positive PCR Cases:</strong> {this.state.usaState.positiveCasesViral}
@@ -146,7 +146,8 @@ export default class DataRender extends React.Component {
                                 {/* {this.state.usaState.positive} */}
                             </div>
                             <div className="data-item">
-                                <strong>Negative Cases:</strong> {this.state.usaState.negative}
+                                <strong>Negative Cases:</strong> <NumberFormat value={this.state.usaState.negative} displayType={'text'} thousandSeparator={true} />
+                                {/* {this.state.usaState.negative} */}
                             </div>
                             <br />
                         </div>
@@ -161,24 +162,29 @@ export default class DataRender extends React.Component {
                                 <strong><a href="https://covidtracking.com/about-data/data-definitions#hospitalization" target="_blank" rel="noopener noreferrer">Hospitalization Data:</a></strong>
                             </div>
                             <div className="data-item">
-                                <strong>Total Hospitalized:</strong>{" "}
-                                {this.state.usaState.hospitalizedCumulative}
+                                <strong>Total Hospitalized:</strong> <NumberFormat value={this.state.usaState.hospitalizedCumulative} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.hospitalizedCumulative} */}
                             </div>
                             <div className="data-item">
-                                <strong>Currently Hospitalized:</strong>{" "}
-                                {this.state.usaState.hospitalizedCurrently}
+                                <strong>Currently Hospitalized:</strong> <NumberFormat value={this.state.usaState.hospitalizedCurrently} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.hospitalizedCurrently} */}
                             </div>
                             <div className="data-item">
-                                <strong>Currently in ICU:</strong>{" "}
-                                {this.state.usaState.inIcuCurrently}
+                                <strong>Currently in ICU:</strong> <NumberFormat value={this.state.usaState.inIcuCurrently} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.inIcuCurrently} */}
                             </div>
                             <div className="data-item">
-                                <strong>Currently on Ventilator:</strong>{" "}
-                                {this.state.usaState.onVentilatorCurrently}
+                                <strong>Currently on Ventilator:</strong> <NumberFormat value={this.state.usaState.onVentilatorCurrently} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.onVentilatorCurrently} */}
                             </div>
                             <div className="data-item">
-                                <strong>Hospitalizations Since Yesterday:</strong>{" "}
-                                {this.state.usaState.hospitalizedIncrease}
+                                <strong>Hospitalizations Since Yesterday:</strong> <NumberFormat value={this.state.usaState.hospitalizedIncrease} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.hospitalizedIncrease} */}
                             </div>
                             <br />
                         </div>
@@ -193,11 +199,14 @@ export default class DataRender extends React.Component {
                                 <strong><a href="https://covidtracking.com/about-data/data-definitions#outcomes" target="_blank" rel="noopener noreferrer">Death Data:</a></strong>
                             </div>
                             <div className="data-item">
-                                <strong>Total Deaths:</strong> {this.state.usaState.death}
+                                <strong>Total Deaths:</strong> <NumberFormat value={this.state.usaState.death} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.death} */}
                             </div>
                             <div className="data-item">
-                                <strong>Deaths Since Yesterday:</strong>{" "}
-                                {this.state.usaState.deathIncrease}
+                                <strong>Deaths Since Yesterday:</strong> <NumberFormat value={this.state.usaState.deathIncrease} displayType={'text'} thousandSeparator={true} />
+
+                                {/* {this.state.usaState.deathIncrease} */}
                             </div>
                             <br />
                         </div>
@@ -205,7 +214,7 @@ export default class DataRender extends React.Component {
                 }
 
                 {/* Chart Render */}
-                <div>
+                {/* <div>
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
                             <LineChart width={600} height={300} data={dataTest}
@@ -221,7 +230,7 @@ export default class DataRender extends React.Component {
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
-                </div>
+                </div> */}
 
             </div>
         );
