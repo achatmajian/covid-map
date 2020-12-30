@@ -13,9 +13,9 @@ import statesCoordinates from "./data/states.json";
 // import ToggleButtons from "./components/ToggleButtons.js";
 import DataRender from "./components/DataRender.js";
 import "./App.css";
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
-import UsaCard from "./components/UsaCard.js";
+// import UsaCard from "./components/UsaCard.js";
 
 export default function App() {
   /* ======= Viewport set up ======= */
@@ -106,7 +106,7 @@ export default function App() {
           </Card>
         </div> */}
 
-        <UsaCard />
+        {/* <UsaCard /> */}
 
       </ReactMapGL>
     </div>
