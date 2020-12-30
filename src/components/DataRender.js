@@ -19,6 +19,7 @@ import {
     ResponsiveContainer,
     LabelList
 } from "recharts";
+import NumberFormat from 'react-number-format';
 
 const dataTest = [
     { name: 'March', Tested: 4000, Hospitalized: 2400, Dead: 2400 },
@@ -141,7 +142,8 @@ export default class DataRender extends React.Component {
                                 <strong>Confirmed Positive PCR Cases:</strong> {this.state.usaState.positiveCasesViral}
                             </div> */}
                             <div className="data-item">
-                                <strong>Positive Cases:</strong> {this.state.usaState.positive}
+                                <strong>Positive Cases:</strong> <NumberFormat value={this.state.usaState.positive} displayType={'text'} thousandSeparator={true} />
+                                {/* {this.state.usaState.positive} */}
                             </div>
                             <div className="data-item">
                                 <strong>Negative Cases:</strong> {this.state.usaState.negative}
