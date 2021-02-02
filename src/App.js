@@ -61,7 +61,8 @@ export default function App() {
         </Marker>
       ))} */}
 
-      <MyMarker />
+
+      <MyMarker setSelectedInfection={setSelectedInfection} test="testing" />
 
       {selectedInfection ? (
         /* ======= Logic for modal and data displayed within ======= */

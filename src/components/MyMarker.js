@@ -2,27 +2,30 @@ import React, { useState } from "react";
 import ReactMapGL, {
     Marker,
 } from "react-map-gl";
-import statesCoordinates from "./data/states.json";
+import statesCoordinates from "../data/states.json";
 
 
-export default function MyMarker() {
-
+export default function MyMarker({ setSelectedInfection }) {
     return (
         statesCoordinates.map((infection) => {
-            <Marker
-                key={infection.state}
-                latitude={infection.latitude}
-                longitude={infection.longitude}
-            >
-                <button
-                    className="marker-btn"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setSelectedInfection(infection);
-                    }}
+            return (
+                <Marker
+                    key={infection.state}
+                    latitude={infection.latitude}
+                    longitude={infection.longitude}
                 >
-                    <img src="/covid-icon.svg" alt="Covid Icon" />
-                </button>
-            </Marker>
+                    <button
+                        className="marker-btn"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedInfection(infection);
+                        }}
+                    >
+                        <img src="/covid-icon.svg" alt="Covid Icon" />
+                    </button>
+                </Marker>
+            );
+
         })
     )
+}
