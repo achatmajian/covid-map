@@ -32,6 +32,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslinttrc": {
+    "parser": "babel-eslint"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -43,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0"
   }
 }

@@ -6,20 +6,30 @@ import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import {
-//     AreaChart,
-//     Area,
-//     LineChart,
-//     Line,
-//     XAxis,
-//     YAxis,
-//     CartesianGrid,
-//     Tooltip,
-//     Legend,
-//     ResponsiveContainer,
-//     LabelList
-// } from "recharts";
+import {
+    AreaChart,
+    Area,
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+    LabelList
+} from "recharts";
 import NumberFormat from 'react-number-format';
+
+// const dataTest = [
+//     { name: 'March', Tested: 4000, Hospitalized: 2400, Dead: 2400 },
+//     { name: 'April', Tested: 3000, Hospitalized: 1398, Dead: 2210 },
+//     { name: 'May', Tested: 2000, Hospitalized: 9800, Dead: 2290 },
+//     { name: 'June', Tested: 2780, Hospitalized: 3908, Dead: 2000 },
+//     { name: 'July', Tested: 1890, Hospitalized: 4800, Dead: 2181 },
+//     { name: 'August', Tested: 2390, Hospitalized: 3800, Dead: 2500 },
+//     { name: 'September', Tested: 3490, Hospitalized: 4300, Dead: 2100 },
+// ];
 
 const dataTest = [
     { name: 'March', Tested: 4000, Hospitalized: 2400, Dead: 2400 },
@@ -42,8 +52,8 @@ export default class DataRender extends React.Component {
             allStates: null,
             // Props for data toggle in pop up 
             showTesting: true,
-            showHosp: true,
-            showDeath: true,
+            showHosp: false,
+            showDeath: false,
         };
     }
 
