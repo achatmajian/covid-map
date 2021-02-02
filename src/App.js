@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import ReactMapGL, {
-  // Marker,
-  Popup,
+
   GeolocateControl,
-  NavigationControl,
 } from "react-map-gl";
 // import covidData from "./data/geojson.json";
 // import statesCoordinates from "./data/states.json";
@@ -18,6 +16,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import UsaCard from "./components/UsaCard.js";
 import MyMarker from "./components/MyMarker.js";
 import MyPopup from "./components/MyPopup.js";
+import MyNavigationControl from "./components/MyNavigationControl.js";
+import MyGeolocateControl from "./components/MyGeolocateControl.js";
 
 export default function App() {
   /* ======= Viewport set up ======= */
@@ -54,21 +54,9 @@ export default function App() {
         />
       ) : null}
 
-      <div style={{ position: "absolute", right: 0, margin: "30px" }}>
-        <NavigationControl />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 0,
-          margin: "130px 30px 30px 30px",
-        }}
-      >
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-        />
-      </div>
+      <MyNavigationControl />
+
+      <MyGeolocateControl />
 
       {/* USA Card */}
       {/* <div style={{ position: "absolute", right: 0, marginTop: "580px", marginRight: "30px" }}>
