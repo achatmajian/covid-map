@@ -1,29 +1,18 @@
 import React, { useState } from "react";
-import ReactMapGL, {
-
-  GeolocateControl,
-} from "react-map-gl";
-// import covidData from "./data/geojson.json";
-// import statesCoordinates from "./data/states.json";
-// import Chart from "./components/Chart.js";
-// import Chart2 from "./components/Chart2.js";
-// import ChartTest from "./components/ChartTest.js";
-// import ToggleButtons from "./components/ToggleButtons.js";
-import DataRender from "./components/DataRender.js";
+import ReactMapGL from "react-map-gl";
 import "./App.css";
-// import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import UsaCard from "./components/UsaCard.js";
+
 import MyMarker from "./components/MyMarker.js";
 import MyPopup from "./components/MyPopup.js";
 import MyNavigationControl from "./components/MyNavigationControl.js";
 import MyGeolocateControl from "./components/MyGeolocateControl.js";
+// import Card from 'react-bootstrap/Card';
+// import UsaCard from "./components/UsaCard.js";
 
 export default function App() {
-  /* ======= Viewport set up ======= */
+
   const [viewport, setViewport] = useState({
-    // latitude: 40.757535,
-    // longitude: -73.977085,
     latitude: 39.828175,
     longitude: -98.5795,
     width: "100vw",
@@ -33,7 +22,6 @@ export default function App() {
   const [selectedInfection, setSelectedInfection] = useState(null);
 
   return (
-    /* ======= Map render ======= */
 
     <ReactMapGL
       {...viewport}
