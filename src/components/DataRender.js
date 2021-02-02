@@ -224,7 +224,7 @@ export default class DataRender extends React.Component {
                 }
 
                 {/* Chart Render */}
-                <div>
+                {/* <div>
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
                             <LineChart width={600} height={300} data={dataTest}
@@ -240,7 +240,7 @@ export default class DataRender extends React.Component {
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
-                </div>
+                </div> */}
 
             </div>
         );
