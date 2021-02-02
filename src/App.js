@@ -17,6 +17,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import UsaCard from "./components/UsaCard.js";
 import MyMarker from "./components/MyMarker.js";
+import MyPopup from "./components/MyPopup.js";
 
 export default function App() {
   /* ======= Viewport set up ======= */
@@ -43,48 +44,14 @@ export default function App() {
       }}
     >
 
-      {/* {statesCoordinates.map((infection) => (
-        <Marker
-          key={infection.state}
-          latitude={infection.latitude}
-          longitude={infection.longitude}
-        >
-          <button
-            className="marker-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              setSelectedInfection(infection);
-            }}
-          >
-            <img src="/covid-icon.svg" alt="Covid Icon" />
-          </button>
-        </Marker>
-      ))} */}
-
-
-      <MyMarker setSelectedInfection={setSelectedInfection} test="testing" />
+      <MyMarker
+        setSelectedInfection={setSelectedInfection}
+      />
 
       {selectedInfection ? (
-        /* ======= Logic for modal and data displayed within ======= */
-        <Popup
-          latitude={selectedInfection.latitude}
-          longitude={selectedInfection.longitude}
-          closeOnClick={false}
-          anchor="left"
-          dynamicPosition={true}
-          onClose={() => {
-            setSelectedInfection(null);
-          }}
-        >
-          <div>
-            <h3 style={{ textAlign: "center", paddingTop: "10px" }}>
-              {selectedInfection.state}
-            </h3>
-          </div>
-          {/* <ToggleButtons /> */}
-          <DataRender stateId={selectedInfection.id} />
-          {/* Whenever Popup is clicked, it takes id from local json file states.json and passes it to DataRender.js */}
-        </Popup>
+        <MyPopup
+          selectedInfection={selectedInfection} setSelectedInfection={setSelectedInfection}
+        />
       ) : null}
 
       <div style={{ position: "absolute", right: 0, margin: "30px" }}>
