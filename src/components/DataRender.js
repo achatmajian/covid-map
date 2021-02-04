@@ -46,11 +46,10 @@ export default class DataRender extends React.Component {
         super(props);
 
         this.state = {
-            // Props for data rendering in pop up 
+            // Props for data rendering in pop up
             loading: true,
-            usaState: null,
             allStates: null,
-            // Props for data toggle in pop up 
+            // Props for data toggle in pop up
             showTesting: true,
             showHosp: false,
             showDeath: false,
@@ -67,21 +66,9 @@ export default class DataRender extends React.Component {
     // Component fires when marker is clicked
     async componentDidMount() {
         const data = await this.getData();
-        this.setState({ allStates: data });
-        this.setState({ usaState: data[this.props.stateId], loading: false });
+        this.setState({ allStates: data, loading: false });
     }
 
-    // Compares states from local JSON (stateId), compared to states pulled from api (allStates)
-    componentDidUpdate(prevProps) {
-        // Has current props
-        const { stateId } = this.props;
-        // Checks against stateID
-        const { allStates } = this.state
-        // If props from previous state don't equal stateId of current, render data for new state that is clicked
-        if (prevProps.stateId !== stateId) {
-            this.setState({ usaState: allStates[stateId], loading: false });
-        }
-    }
 
     //Toggle logic for testing data
     toggleTesting() {
@@ -115,18 +102,20 @@ export default class DataRender extends React.Component {
             return <div>Data Loaded!</div>;
         }
 
+        const currentState = this.state.allState[this.props.stateId];
+
         return (
             <div>
 
                 {/* US State Information */}
                 <div className="data-title">
-                    <strong>State Abbreviation:</strong> {this.state.usaState.state}
+                    <strong>State Abbreviation:</strong> {currentState.state}
                 </div>
                 {/* <div className="data-item">
                     <strong>Current Date:</strong> {this.state.usaState.date}
                 </div> */}
                 <div className="data-item">
-                    <strong>Data Last Updated:</strong> {this.state.usaState.lastUpdateEt}
+                    <strong>Data Last Updated:</strong> {currentState.lastUpdateEt}
                 </div>
                 <div className="data-item" id="data-quality-padding">
                     <strong><a href="https://covidtracking.com/about-data/state-grades" target="_blank" rel="noopener noreferrer">Data Quality Grade:</a></strong> {this.state.usaState.dataQualityGrade}
