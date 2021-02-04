@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import MyMarker from "./components/MyMarker.js";
 import MyPopup from "./components/MyPopup.js";
+import MyPopup2 from "./components/MyPopup2.js";
 import MyNavigationControl from "./components/MyNavigationControl.js";
 import MyGeolocateControl from "./components/MyGeolocateControl.js";
 // import Card from 'react-bootstrap/Card';
@@ -41,6 +42,14 @@ export default function App() {
           selectedInfection={selectedInfection} setSelectedInfection={setSelectedInfection}
         />
       ) : null}
+
+      {/* {selectedInfection ? (
+        <MyPopup2
+          selectedInfection={selectedInfection} setSelectedInfection={setSelectedInfection}
+          viewport={viewport}
+          setViewport={setViewport}
+        />
+      ) : null} */}
 
       <MyNavigationControl />
 
