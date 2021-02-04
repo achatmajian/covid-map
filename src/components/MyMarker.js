@@ -1,7 +1,5 @@
 import React from "react";
-import ReactMapGL, {
-    Marker,
-} from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
 import statesCoordinates from "../data/states.json";
 
 

@@ -1,7 +1,5 @@
 import React from "react";
-import ReactMapGL, {
-    Popup,
-} from "react-map-gl";
+import ReactMapGL, { Popup } from "react-map-gl";
 import DataRender from "../components/DataRender.js";
 import "./MyPopup.css"
 
