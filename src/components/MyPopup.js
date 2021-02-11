@@ -23,10 +23,7 @@ export default function MyPopup({ selectedInfection, setSelectedInfection }) {
             </h3>
 
             <div id="data-render">
-                {/* <DataRender
-                    stateId={selectedInfection.id} /> */}
-                                    <DataRenderFunc
-                    stateId={selectedInfection.id} />
+            <DataRenderFunc stateId={selectedInfection.id} />
             </div>
         </Popup>
     )

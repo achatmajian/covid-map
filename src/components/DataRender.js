@@ -44,8 +44,7 @@ export default class DataRender extends React.Component {
     }
 
     getData = async () => {
-        const url = "https://api.covidtracking.com/v1/states/current.json";
-        const response = await fetch(url);
+        const response = await fetch("https://api.covidtracking.com/v1/states/current.json");
         const data = await response.json();
         return data;
     };
