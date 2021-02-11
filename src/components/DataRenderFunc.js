@@ -28,9 +28,7 @@ const dataTest = [
     { name: 'September', Tested: 3490, Hospitalized: 4300, Dead: 2100 },
 ];
 
-const DataRenderFunc = (props) => {
-    
-    const {stateId} = props
+const DataRenderFunc = ({stateId}) => {
     
     const [loading, setLoading] = useState(true)
 
@@ -43,8 +41,17 @@ const DataRenderFunc = (props) => {
      
     useEffect(() => {
         const getData = async () => {
-        const url = "https://api.covidtracking.com/v1/states/current.json";
-        const response = await fetch(url);
+
+        const response = await fetch("https://api.covidtracking.com/v1/states/current.json");
+        // if (response.ok) {
+        //     console.log("Request fetched successfully!")
+        //     return;
+        // }
+
+        // if (!response.ok) {
+        //     console.log("Request failed to fetch!")
+        //     throw new Error(response.error)
+        // }
         const data = await response.json();
         console.log(data);
         
@@ -58,26 +65,16 @@ const DataRenderFunc = (props) => {
     }, [])
 
     //Toggle logic for testing data
-     const toggleTesting = () => {
-        setShowTesting(!showTesting)
-    }
+     const toggleTesting = () => {setShowTesting(!showTesting)}
 
     //Toggle logic for hospitalization data
-   const  toggleHosp = () =>{
-        setShowHosp(!showHosp)
-    }
+   const  toggleHosp = () =>{setShowHosp(!showHosp)}
 
     //Toggle logic for death data
-    const toggleDeath = () => {
-        setShowDeath(!showDeath)
-    }
+    const toggleDeath = () => {setShowDeath(!showDeath)}
 
         if (loading) {
             return <div>Loading...</div>;
-        }
-
-        if (!usaState) {
-            return <div>Data Loaded!</div>;
         }
 
     const currentState = allStates[stateId];
@@ -211,16 +208,19 @@ const DataRenderFunc = (props) => {
                 <div>
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
-                            <LineChart width={600} height={300} data={dataTest}
+                            <LineChart width={600} height={300} data={currentState}
                                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                                <XAxis dataKey="name" />
+                                <XAxis dataKey={
+                                    currentState.positive, 
+                                    currentState.hospitalizedCumulative, 
+                                    currentState.death } />
                                 <YAxis />
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <Tooltip />
                                 <Legend />
-                                <Line type="monotone" dataKey="Tested" stroke="#28a745" />
-                                <Line type="monotone" dataKey="Hospitalized" stroke="#ffc107" />
-                                <Line type="monotone" dataKey="Dead" stroke="#e25a67" />
+                                <Line type="monotone" dataKey={currentState.positive} stroke="#28a745" />
+                                <Line type="monotone" dataKey={currentState.hospitalizedCumulative} stroke="#ffc107" />
+                                <Line type="monotone" dataKey={currentState.death} stroke="#e25a67" />
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
