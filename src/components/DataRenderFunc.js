@@ -28,56 +28,47 @@ const dataTest = [
     { name: 'September', Tested: 3490, Hospitalized: 4300, Dead: 2100 },
 ];
 
-const DataRenderFunc =(props)=>{
+const DataRenderFunc = (props) => {
+    
     const {stateId} = props
     
     const [loading, setLoading] = useState(true)
+
     const [allStates, setAllStates] = useState(null)
+    const [usaState, setUsaState] = useState(null)
+
     const [showTesting, setShowTesting] = useState(true)
     const [showHosp, setShowHosp] = useState(false)
     const [showDeath, setShowDeath] = useState(false)
-     const [usaState, setUsaState] = useState(null)
-
-
-        
-    // const getData = async () => {
-    //     const url = "https://api.covidtracking.com/v1/states/current.json";
-    //     const response = await fetch(url);
-    //     const data = await response.json();
-    //     console.log(data);
-    //     return data;
-    // };
-
-    // Component fires when marker is clicked
-    useEffect(()=>{
+     
+    useEffect(() => {
         const getData = async () => {
-            // const result = await axios(
-                const url = "https://api.covidtracking.com/v1/states/current.json";
+        const url = "https://api.covidtracking.com/v1/states/current.json";
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
         
         setAllStates(data)
-         setUsaState(data[stateId])
+        setUsaState(data[stateId])
         setLoading(false)
         setShowTesting(true)
         }
+
         getData()
-        // this.setState({ allStates: data, usaState: data[this.props.stateId], loading: false });
     }, [])
 
     //Toggle logic for testing data
-     const toggleTesting =()=>{
+     const toggleTesting = () => {
         setShowTesting(!showTesting)
     }
 
     //Toggle logic for hospitalization data
-   const  toggleHosp=() =>{
+   const  toggleHosp = () =>{
         setShowHosp(!showHosp)
     }
 
     //Toggle logic for death data
-    const toggleDeath=() => {
+    const toggleDeath = () => {
         setShowDeath(!showDeath)
     }
 
@@ -89,7 +80,7 @@ const DataRenderFunc =(props)=>{
             return <div>Data Loaded!</div>;
         }
 
-        const currentState = allStates[stateId];
+    const currentState = allStates[stateId];
 
         return (
             <div>
@@ -107,9 +98,15 @@ const DataRenderFunc =(props)=>{
 
                 {/* Toggle Buttons */}
                 <Row horizontal='center'>
-                    <Button onClick={toggleTesting} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
-                    <Button onClick={toggleHosp} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
-                    <Button onClick={toggleDeath} variant="danger" size="sm" id="death-btn" className="button">Death</Button>
+                    <Button
+                        onClick={toggleTesting} variant="success" size="sm" id="test-btn" className="button">Testing
+                    </Button>
+                    <Button 
+                        onClick={toggleHosp} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization
+                    </Button>
+                    <Button 
+                        onClick={toggleDeath} variant="danger" size="sm" id="death-btn" className="button">Death
+                    </Button>
                 </Row>
 
                 <hr />
