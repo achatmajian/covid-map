@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
@@ -28,59 +28,68 @@ const dataTest = [
     { name: 'September', Tested: 3490, Hospitalized: 4300, Dead: 2100 },
 ];
 
-export default class DataRender extends React.Component {
-    constructor(props) {
-        super(props);
+const DataRenderFunc =(props)=>{
+    const {stateId} = props
+    
+    const [loading, setLoading] = useState(true)
+    const [allStates, setAllStates] = useState(null)
+    const [showTesting, setShowTesting] = useState(true)
+    const [showHosp, setShowHosp] = useState(false)
+    const [showDeath, setShowDeath] = useState(false)
+     const [usaState, setUsaState] = useState(null)
 
-        this.state = {
-            // Props for data rendering in pop up 
-            loading: true,
-            allStates: null,
-            // Props for data toggle in pop up 
-            showTesting: true,
-            showHosp: false,
-            showDeath: false,
-        };
-    }
 
-    getData = async () => {
-        const url = "https://api.covidtracking.com/v1/states/current.json";
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-    };
+        
+    // const getData = async () => {
+    //     const url = "https://api.covidtracking.com/v1/states/current.json";
+    //     const response = await fetch(url);
+    //     const data = await response.json();
+    //     console.log(data);
+    //     return data;
+    // };
 
     // Component fires when marker is clicked
-    async componentDidMount() {
-        const data = await this.getData();
-        this.setState({ allStates: data, usaState: data[this.props.stateId], loading: false });
-    }
+    useEffect(()=>{
+        const getData = async () => {
+            // const result = await axios(
+                const url = "https://api.covidtracking.com/v1/states/current.json";
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        
+        setAllStates(data)
+         setUsaState(data[stateId])
+        setLoading(false)
+        setShowTesting(true)
+        }
+        getData()
+        // this.setState({ allStates: data, usaState: data[this.props.stateId], loading: false });
+    }, [])
 
     //Toggle logic for testing data
-    toggleTesting() {
-        this.setState({showTesting: !this.state.showTesting})
+     const toggleTesting =()=>{
+        setShowTesting(!showTesting)
     }
 
     //Toggle logic for hospitalization data
-    toggleHosp() {
-        this.setState({showHosp: !this.state.showHosp})
+   const  toggleHosp=() =>{
+        setShowHosp(!showHosp)
     }
 
     //Toggle logic for death data
-    toggleDeath() {
-        this.setState({showDeath: !this.state.showDeath})
+    const toggleDeath=() => {
+        setShowDeath(!showDeath)
     }
 
-    render() {
-        if (this.state.loading) {
+        if (loading) {
             return <div>Loading...</div>;
         }
 
-        if (!this.state.usaState) {
+        if (!usaState) {
             return <div>Data Loaded!</div>;
         }
 
-        const currentState = this.state.allStates[this.props.stateId];
+        const currentState = allStates[stateId];
 
         return (
             <div>
@@ -98,16 +107,16 @@ export default class DataRender extends React.Component {
 
                 {/* Toggle Buttons */}
                 <Row horizontal='center'>
-                    <Button onClick={() => this.toggleTesting()} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
-                    <Button onClick={() => this.toggleHosp()} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
-                    <Button onClick={() => this.toggleDeath()} variant="danger" size="sm" id="death-btn" className="button">Death</Button>
+                    <Button onClick={toggleTesting} variant="success" size="sm" id="test-btn" className="button">Testing</Button>
+                    <Button onClick={toggleHosp} variant="warning" size="sm" id="hosp-btn" className="button">Hospitalization</Button>
+                    <Button onClick={toggleDeath} variant="danger" size="sm" id="death-btn" className="button">Death</Button>
                 </Row>
 
                 <hr />
 
                 {/* Testing Data Render */}
                 {
-                    this.state.showTesting ?
+                    showTesting ?
                         <div id="testing-data">
 
                             <div className="data-title">
@@ -133,7 +142,7 @@ export default class DataRender extends React.Component {
 
                 {/* Hospitalization Data Render */}
                 {
-                    this.state.showHosp ?
+                    showHosp ?
                         <div id="hosp-data">
 
                             <div className="data-title">
@@ -177,7 +186,7 @@ export default class DataRender extends React.Component {
 
                 {/* Death Data Render */}
                 {
-                    this.state.showDeath ?
+                    showDeath ?
                         <div id="death-data">
 
                             <div className="data-title">
@@ -221,6 +230,7 @@ export default class DataRender extends React.Component {
                 </div>
 
             </div>
-        );
-    }
-}
+        )
+            }            
+    
+export default DataRenderFunc;        

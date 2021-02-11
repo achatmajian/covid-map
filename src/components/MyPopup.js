@@ -1,6 +1,7 @@
 import React from "react";
 import ReactMapGL, { Popup } from "react-map-gl";
-import DataRender from "../components/DataRender.js";
+// import DataRender from "../components/DataRender.js";
+import DataRenderFunc from "../components/DataRenderFunc.js";
 import "./MyPopup.css"
 
 
@@ -22,7 +23,9 @@ export default function MyPopup({ selectedInfection, setSelectedInfection }) {
             </h3>
 
             <div id="data-render">
-                <DataRender
+                {/* <DataRender
+                    stateId={selectedInfection.id} /> */}
+                                    <DataRenderFunc
                     stateId={selectedInfection.id} />
             </div>
         </Popup>
