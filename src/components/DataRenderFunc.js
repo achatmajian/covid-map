@@ -221,9 +221,9 @@ const DataRenderFunc = ({stateId}) => {
                             </LineChart>
                         </ResponsiveContainer>
                     </div>
-                </div>
+                </div> */}
 
-            </div> */}
+            </div>
         )
             }            
     
