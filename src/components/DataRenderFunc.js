@@ -3,19 +3,16 @@ import "./DataRenderStyles.css";
 import Button from 'react-bootstrap/Button';
 import { Row } from "simple-flexbox";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-    AreaChart,
-    Area,
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    LabelList
-} from "recharts";
+// import {
+//     LineChart,
+//     Line,
+//     XAxis,
+//     YAxis,
+//     CartesianGrid,
+//     Tooltip,
+//     Legend,
+//     ResponsiveContainer,
+// } from "recharts";
 import NumberFormat from 'react-number-format';
 
 const dataTest = [
@@ -205,7 +202,7 @@ const DataRenderFunc = ({stateId}) => {
                 }
 
                 {/* Chart Render */}
-                <div>
+                {/* <div>
                     <div style={{ width: "600px", margin: "0 auto", height: "300px" }}>
                         <ResponsiveContainer>
                             <LineChart width={600} height={300} data={currentState}
@@ -226,7 +223,7 @@ const DataRenderFunc = ({stateId}) => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         )
             }            
     

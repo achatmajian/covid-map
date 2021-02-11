@@ -5,11 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import MyMarker from "./components/MyMarker.js";
 import MyPopup from "./components/MyPopup.js";
-import MyPopup2 from "./components/MyPopup2.js";
 import MyNavigationControl from "./components/MyNavigationControl.js";
 import MyGeolocateControl from "./components/MyGeolocateControl.js";
-// import Card from 'react-bootstrap/Card';
-// import UsaCard from "./components/UsaCard.js";
 
 export default function App() {
 
@@ -43,26 +40,9 @@ export default function App() {
         />
       ) : null}
 
-      {/* {selectedInfection ? (
-        <MyPopup2
-          selectedInfection={selectedInfection} setSelectedInfection={setSelectedInfection}
-          viewport={viewport}
-          setViewport={setViewport}
-        />
-      ) : null} */}
-
       <MyNavigationControl />
 
       <MyGeolocateControl />
-
-      {/* USA Card */}
-      {/* <div style={{ position: "absolute", right: 0, marginTop: "580px", marginRight: "30px" }}>
-          <Card>
-            <Card.Body style={{ fontSize: "10px" }}>This is some text within a card body.</Card.Body>
-          </Card>
-        </div> */}
-
-      {/* <UsaCard /> */}
 
     </ReactMapGL>
 
